@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <TextField fx:id="zoname" floatText="NOM" layoutX="72.0" layoutY="82.0" />
+      <TextField fx:id="zonprenom" floatText="PRENOM" layoutX="72.0" layoutY="175.0" />
+      <TextField fx:id="zoneadrmail" floatText="ADRESSE MAIL" layoutX="69.0" layoutY="275.0" />
+      <TextField fx:id="zoneadr" floatText="ADRESSE" layoutX="300.0" layoutY="187.0" />
+      <TextField fx:id="zonetele" floatText="TELEPHONE" layoutX="300.0" layoutY="82.0" />
+      <Button layoutX="41.0" layoutY="335.0" mnemonicParsing="false" onAction="#quitter" text="QUITTER" />
+      <Button layoutX="335.0" layoutY="268.0" mnemonicParsing="false" text="REGISTER" />
+      <Button layoutX="494.0" layoutY="339.0" mnemonicParsing="false" text="GO BACK" />
+   </children>
+</AnchorPane>
