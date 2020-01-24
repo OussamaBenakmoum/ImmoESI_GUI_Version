@@ -5,6 +5,7 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
@@ -22,6 +23,11 @@
       </ToolBar>
       <VBox layoutX="305.0" layoutY="179.0" prefHeight="247.0" prefWidth="150.0" spacing="30.0">
          <children>
+            <ImageView fx:id="lockIcon" fitHeight="96.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets left="60.0" />
+               </VBox.margin>
+            </ImageView>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="IDENTIFICATION" textAlignment="CENTER" wrappingWidth="223.33673095703125" />
             <TextField fx:id="username" prefHeight="26.0" prefWidth="262.0" promptText="username" />
             <PasswordField fx:id="passwd" promptText="passwd" />

@@ -24,6 +24,7 @@ import java.util.InputMismatchException;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Controller implements Initializable {
 
@@ -79,7 +80,7 @@ public class Controller implements Initializable {
     @FXML
 
 
-    void OnSubit(ActionEvent event) throws IOException {
+    void OnSubit(ActionEvent event) throws IOException, InterruptedException {
 
         //boolean exist = ad.identification(username.getText(),passwd.getText());
         boolean exist = true;
@@ -376,6 +377,11 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
 
 
 
+
+
+
+
+
 /********************************************/
 //Images
 
@@ -393,16 +399,8 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
     private ImageView addIcon = new ImageView();
     @FXML
     private ImageView plusIcon = new ImageView();
-
     @FXML
-    private ComboBox<Proprietaire> comboboxProps = new ComboBox<Proprietaire>();
-
-    public void useComboBox(){
-        comboboxProps.getItems().addAll(ImmoESI.proprietaires);
-
-    }
-
-
+    private ImageView lockIcon = new ImageView();
 
 
     @Override
@@ -427,6 +425,8 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
 
         Image plus = new Image("images/plus.png");
         plusIcon.setImage(plus);
+
+        lockIcon.setImage(new Image("images/locked.png"));
 
 
 
