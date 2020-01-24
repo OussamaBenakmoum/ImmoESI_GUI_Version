@@ -14,11 +14,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
+import java.io.PipedReader;
 import java.net.URL;
 import java.util.InputMismatchException;
+import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -27,14 +30,15 @@ public class Controller implements Initializable {
 
     Agence ImmoESI = new Agence();
     Admin ad = new Admin("IMMOESI","0000");
-    private Object Group;
 
 
     public void GoToAdmin (ActionEvent event) throws IOException
     {
-        Parent admin = FXMLLoader.load(getClass().getResource("../fxmlFiles/PageAdmin.fxml"));
+        Parent admin = FXMLLoader.load(getClass().getResource("PageAdmin.fxml"));
         Scene adminscene = new Scene(admin);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+
         window.setScene(adminscene);
         window.setResizable(false);
         window.show();
@@ -48,7 +52,7 @@ public class Controller implements Initializable {
 
     public void GoToPublic (ActionEvent event) throws IOException
     {
-        Parent publiq = FXMLLoader.load(getClass().getResource("../fxmlFiles/PagePublic.fxml"));
+        Parent publiq = FXMLLoader.load(getClass().getResource("PagePublic.fxml"));
         Scene pubscene = new Scene(publiq);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
@@ -61,7 +65,7 @@ public class Controller implements Initializable {
 
     public void GoBACK (ActionEvent event) throws IOException
     {
-        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/sample.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("sample.fxml"));
         Scene sampscene = new Scene(samp);
 
 
@@ -81,7 +85,7 @@ public class Controller implements Initializable {
         boolean exist = true;
         if (exist)
         {
-            Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/MenuAdmin.fxml"));
+            Parent samp = FXMLLoader.load(getClass().getResource("MenuAdmin.fxml"));
             Scene sampscene = new Scene(samp);
             Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
             window.setScene(sampscene);
@@ -109,7 +113,7 @@ public class Controller implements Initializable {
 
     public void GoBACKADMENU (ActionEvent event) throws IOException
     {
-        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/MenuAdmin.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("MenuAdmin.fxml"));
         Scene sampscene = new Scene(samp);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(sampscene);
@@ -119,7 +123,7 @@ public class Controller implements Initializable {
 
     public void GoGestionBiens (ActionEvent event) throws IOException
     {
-        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/MenuGestionBiens.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("MenuGestionBiens.fxml"));
         Scene sampscene = new Scene(samp);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(sampscene);
@@ -131,7 +135,7 @@ public class Controller implements Initializable {
 
     public void GoAjouterBien (ActionEvent event) throws IOException
     {
-        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/AjouterBien.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("AjouterBien.fxml"));
         Scene sampscene = new Scene(samp);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(sampscene);
@@ -162,15 +166,16 @@ private SubScene mainSubScene;
 /******************************************************************/
 
 private TableView tableWilayas = new TableView();
-ObservableList<Wilaya> data = FXCollections.observableArrayList(Wilaya.wilayas);
+
 
 
 public void GoAfficherWilayas (ActionEvent event) throws IOException
 {
-    Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/PagePublic.fxml"));
+    Parent samp = FXMLLoader.load(getClass().getResource("PagePublic.fxml"));
 
     ObservableList<Wilaya> data = FXCollections.observableArrayList(Wilaya.wilayas);
     tableWilayas.setEditable(true);
+
     TableColumn wilayaNameCol = new TableColumn("Wilaya");
 
     wilayaNameCol.setCellValueFactory(
@@ -219,7 +224,7 @@ public void GoAfficherWilayas (ActionEvent event) throws IOException
 
 public void GoMessage (ActionEvent event) throws IOException, MessagingException {
 
-    Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/Message.fxml"));
+    Parent samp = FXMLLoader.load(getClass().getResource("Message.fxml"));
     Scene sampscene = new Scene(samp);
     Stage window = new Stage();
 
@@ -227,10 +232,6 @@ public void GoMessage (ActionEvent event) throws IOException, MessagingException
     window.setTitle("Envoyer Message");
 
 
-   // String SenderName;
-   // String senderMessage = textMessage.toString();
-
-   // Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
     window.setScene(sampscene);
     window.setResizable(false);
     window.showAndWait();
@@ -269,19 +270,10 @@ public void mouseEnterButton(ActionEvent Event){
 
 
 public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
-    Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/AfficherAnnonces.fxml"));
+    Parent samp = FXMLLoader.load(getClass().getResource("AfficherAnnonces.fxml"));
     mainSubScene.setRoot(samp);
 }
 
-
-@FXML
-private ImageView imageview = new ImageView();
-@FXML
-private ImageView admminIcon = new ImageView();
-@FXML
-private ImageView pubIcon = new ImageView();
-@FXML
-private ImageView mailImView = new ImageView();
 
 /******************************************************/
 
@@ -330,8 +322,92 @@ private ImageView mailImView = new ImageView();
     }
 
 
+    public void AjouterBienAppart(ActionEvent event) throws IOException {
+        Parent samp = FXMLLoader.load(getClass().getResource("AjouterBienAppart.fxml"));
+        mainSubScene.setRoot(samp);
+    }
+    public void AjouterBienMaison(ActionEvent event) throws IOException {
+        Parent samp = FXMLLoader.load(getClass().getResource("AjouterBienMaison.fxml"));
+        mainSubScene.setRoot(samp);
+    }
+    public void AjouterBienTerrain(ActionEvent event) throws IOException {
+        Parent samp = FXMLLoader.load(getClass().getResource("AjouterBienTerrain.fxml"));
+        mainSubScene.setRoot(samp);
+    }
+
+
+/**************************************************/
+    @FXML
+    private TextField nomTextField;
+    @FXML
+    private TextField prenomTextField;
+    @FXML
+    private TextField  adressTextField;
+    @FXML
+    private TextField emailTextField;
+    @FXML
+    private TextField phoneTextfield;
+
+/**************************************************/
+
+    public void creerPropDialogBox (ActionEvent event) throws IOException {
+
+        Parent samp = FXMLLoader.load(getClass().getResource("CreerProp.fxml"));
+        Scene sampscene = new Scene(samp);
+        Stage window = new Stage();
+
+        window.initModality(Modality.APPLICATION_MODAL);// to still use other windeows
+        window.setTitle("Créer un nouveau proprietaire");
+
+
+        window.setScene(sampscene);
+        window.setResizable(false);
+        window.show();
+
+    }
+
+    public void creerProp(ActionEvent event){
+    Proprietaire prop = new Proprietaire(0, nomTextField.toString(), prenomTextField.toString(),
+                emailTextField.toString(),phoneTextfield.toString(), adressTextField.toString() );
+        ImmoESI.proprietaires.add(prop);
+        System.out.println("the name of the new owner"+ImmoESI.proprietaires.get(0).getNom());
+
+    }
+
+
+
+/********************************************/
+//Images
+
+
+
+    @FXML
+    private ImageView imageview = new ImageView();
+    @FXML
+    private ImageView admminIcon = new ImageView();
+    @FXML
+    private ImageView pubIcon = new ImageView();
+    @FXML
+    private ImageView mailImView = new ImageView();
+    @FXML
+    private ImageView addIcon = new ImageView();
+    @FXML
+    private ImageView plusIcon = new ImageView();
+
+    @FXML
+    private ComboBox<Proprietaire> comboboxProps = new ComboBox<Proprietaire>();
+
+    public void useComboBox(){
+        comboboxProps.getItems().addAll(ImmoESI.proprietaires);
+
+    }
+
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
 
         Wilaya.ouvrirFichierPrix("PrixWilayas.csv");
         //ImmoESI.declarationsBiens();
@@ -344,21 +420,18 @@ private ImageView mailImView = new ImageView();
         pubIcon.setImage(pubimage);
         Image mailImage = new Image("images/mail.png");
         mailImView.setImage(mailImage);
-    }
-
-    public void AjouterBienPage1(ActionEvent event) throws IOException {
-        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/AjouterBien.fxml"));
-        mainSubScene.setRoot(samp);
-
-    }
 
 
-    public void AjouterBienPage2(ActionEvent event) throws IOException {
-        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/AjouterBienAppart.fxml"));
-        mainSubScene.setRoot(samp);
+        Image addicon = new Image("images/addUser.png");
+        addIcon.setImage(addicon);
+
+        Image plus = new Image("images/plus.png");
+        plusIcon.setImage(plus);
+
+
+
 
     }
-
 }
 
 

@@ -23,7 +23,6 @@ public class Proprietaire
         this.matricule = nbProps;
         Scanner sc = new Scanner(System.in);
         Scanner intSc = new Scanner(System.in);
-        System.out.println("Saisir les informations du Bien: ");
         System.out.println("Nom : ");
         this.nom = sc.nextLine();
         System.out.println("Prenom : ");
