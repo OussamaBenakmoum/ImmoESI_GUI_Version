@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ajouterAppart" prefHeight="480.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane fx:id="ajouterAppart" prefHeight="480.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AjouterBienAppartController">
     <children>
       <Label layoutX="44.0" layoutY="14.0" text="Ajouter un appartement">
          <font>
@@ -28,15 +28,15 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField prefHeight="26.0" prefWidth="168.0" promptText="Matricule" />
-            <TextField prefHeight="26.0" prefWidth="165.0" promptText="Adresse" />
-            <TextField prefHeight="26.0" prefWidth="165.0" promptText="Wilaya (code)" />
-            <TextField prefHeight="26.0" prefWidth="165.0" promptText="Superficie (m²)" />
-            <TextField prefHeight="26.0" prefWidth="165.0" promptText="Nombre de pieces" />
-            <TextField prefHeight="26.0" prefWidth="165.0" promptText="Etage" />
+            <TextField fx:id="matriculeTextField" prefHeight="26.0" prefWidth="168.0" promptText="Matricule" />
+            <TextField fx:id="adresseTextField" prefHeight="26.0" prefWidth="165.0" promptText="Adresse" />
+            <TextField fx:id="wilayaCodeTextField" prefHeight="26.0" prefWidth="165.0" promptText="Wilaya (code)" />
+            <TextField fx:id="superficieTextField" prefHeight="26.0" prefWidth="165.0" promptText="Superficie (m²)" />
+            <TextField fx:id="nbPiecesTextField" prefHeight="26.0" prefWidth="165.0" promptText="Nombre de pieces" />
+            <TextField fx:id="etageTextField" prefHeight="26.0" prefWidth="165.0" promptText="Etage" />
          </children>
         </VBox>
-        <Button layoutX="599.0" layoutY="414.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="93.0" text="Créer" />
+        <Button layoutX="599.0" layoutY="414.0" mnemonicParsing="false" onAction="#creerBienAppart" prefHeight="43.0" prefWidth="93.0" text="Créer" />
       <VBox layoutX="380.0" layoutY="88.0" prefHeight="118.0" prefWidth="290.0" spacing="10.0">
          <children>
             <Label text="Options">
@@ -44,19 +44,19 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <CheckBox mnemonicParsing="false" text="Ascenseur" />
-            <CheckBox mnemonicParsing="false" text="Simplexe" />
-            <CheckBox mnemonicParsing="false" text="Meublé" />
+            <CheckBox fx:id="ascenseurCheckBox" mnemonicParsing="false" text="Ascenseur" />
+            <CheckBox fx:id="simplexeCheckBox" mnemonicParsing="false" text="Simplexe" />
+            <CheckBox fx:id="meubleCheckBox" mnemonicParsing="false" text="Meublé" />
          </children>
       </VBox>
       <VBox layoutX="381.0" layoutY="223.0" prefHeight="159.0" prefWidth="290.0" spacing="10.0">
          <children>
-            <TextField promptText="Prix initial (DA)" />
-            <TextArea prefHeight="100.0" prefWidth="251.0" promptText="Description du bien" />
+            <TextField fx:id="prixInitialTextField" promptText="Prix initial (DA)" />
+            <TextArea fx:id="descriptionTextArea" prefHeight="100.0" prefWidth="251.0" promptText="Description du bien" />
          </children>
       </VBox>
       <Separator layoutX="343.0" layoutY="70.0" orientation="VERTICAL" prefHeight="344.0" prefWidth="0.0" />
-      <VBox layoutX="43.0" layoutY="79.0" prefHeight="80.0" prefWidth="255.0">
+      <VBox layoutX="43.0" layoutY="79.0" prefHeight="86.0" prefWidth="268.0">
          <children>
              <Label text="Propriétaire" />
             <HBox prefHeight="43.0" prefWidth="222.0" spacing="15.0">
@@ -64,8 +64,13 @@
                   <ChoiceBox fx:id="propsChoiceBox" prefHeight="26.0" prefWidth="170.0" />
                   <Button mnemonicParsing="false" onAction="#creerPropDialogBox" prefHeight="30.0" prefWidth="32.0">
                      <graphic>
-                        <ImageView fx:id="plusIcon" fitHeight="15.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="plusIcon" fitHeight="11.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic></Button>
+                  <Button mnemonicParsing="false" onAction="#refreshList" prefHeight="25.0" prefWidth="26.0">
+                     <graphic>
+                        <ImageView fx:id="reloadIcon" fitHeight="18.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </Button>
                </children>
             </HBox>
              <Label text="Transaction" />

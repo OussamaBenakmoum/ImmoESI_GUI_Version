@@ -18,7 +18,7 @@ public class Agence {
     private Admin admin = new Admin("chems", "0000");
 
     public ArrayList<Bien> biens = new ArrayList<>();
-    public ArrayList<Proprietaire> proprietaires = new ArrayList<>();
+    //public ArrayList<Proprietaire> Proprietaire.proprietaires = Proprietaire.Proprietaire.proprietaires;
     public TreeSet<Bien> treeBiens = new TreeSet<>();
     private Set<Bien> bienArchives = new HashSet<>();
 
@@ -136,7 +136,7 @@ public class Agence {
                     case '1':prop = selectProp();
                         break;
                     case '2':prop =  new Proprietaire();
-                        proprietaires.add(prop);
+                        Proprietaire.proprietaires.add(prop);
                         break;
                     default: System.out.println("choix 1 ou 2");
                         break;
@@ -367,7 +367,7 @@ public class Agence {
                     System.out.println("Nouvelle valeur:");
                     afficherListeProprietaires();
                     System.out.println("Donner le code du nouveau propprietaire");
-                    obj.setProp(proprietaires.get(sc.nextInt()));
+                    obj.setProp(Proprietaire.proprietaires.get(sc.nextInt()));
                     break;
                 case '4':
                     System.out.println("Nouvelle valeur:");
@@ -411,57 +411,13 @@ public class Agence {
     }
 
 
-    /** Gestion des fichier */
-    public ArrayList<Proprietaire> ouvrirFicherProprietaires(String filename)
-    /** cette procedure sert à charger les données depuis le fichier "filename" des proprétaires
-
-     */
-
-    {
-        Path pathToFile = Paths.get(filename);
-
-        // create an instance of BufferedReader
-        // using try with resource, Java 7 feature to close resources
-        try (BufferedReader br = Files.newBufferedReader(pathToFile,
-                StandardCharsets.UTF_8)) {
-
-            // read the first line from the text file
-            String line = br.readLine();
-            line = br.readLine();
-
-
-            // loop until all lines are read
-            while (line != null) {
-
-                // use string.split to load a string array with the values from
-                // each line of
-                // the file, using a comma as the delimiter
-                String[] attributes = line.split(";");
-
-                Proprietaire prop = new Proprietaire(Integer.parseInt(attributes[0]),attributes[1], attributes[2],  attributes[3],  attributes[4], attributes[5]);
-                // adding un proprietaire into ArrayList
-                proprietaires.add(prop);
-                // read next line before looping
-                // if end of file reached, line would be null
-                line = br.readLine();
-            }
-
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-
-        return proprietaires;
-
-    }
-
-
     public void chargerFicherProprietaire() throws IOException {
 
-        FileWriter csvWriter = new FileWriter("proprietaires.csv");
+        FileWriter csvWriter = new FileWriter("Proprietaire.proprietaires.csv");
 
         csvWriter.append("matricule;nom;prenom;adrmail;telephone;adresse;\n");
 
-        for (Proprietaire prop:proprietaires
+        for (Proprietaire prop:Proprietaire.proprietaires
              ) {
             csvWriter.append(String.valueOf(prop.getMatricule())+";");
             csvWriter.append(prop.getNom()+";");
@@ -480,9 +436,8 @@ public class Agence {
 
     public void afficherListeProprietaires() {
         System.out.println("***************** Les Propri\u00e9taires  *****************");
-
         int i =1;
-        for (Proprietaire prop:proprietaires) {
+        for (Proprietaire prop:Proprietaire.proprietaires) {
             System.out.print(i+") ");i++;
             prop.afficher();
             System.out.println("-------------------------------------");
@@ -534,7 +489,7 @@ public class Agence {
         System.out.println("Selectionnez un Proprietaire existant.");
 
         char choix = sc.next().charAt(0);
-        return proprietaires.get(Integer.parseInt(String.valueOf(choix))-1);
+        return Proprietaire.proprietaires.get(Integer.parseInt(String.valueOf(choix))-1);
 
     }
 
@@ -568,35 +523,35 @@ public class Agence {
     }
 
     public void declarationsBiens(){
-        Bien b1 = new Appartement(1, "31 cite afak afak", 120, proprietaires.get(1), Transaction.vente,
+        Bien b1 = new Appartement(1, "31 cite afak afak", 120, Proprietaire.proprietaires.get(1), Transaction.vente,
                 4000000, false, "","2019-01-01", Wilaya.codeToWilaya(1),
                 "Photo", 4, false,1,  false, false);
 
-        Bien b2 = new Maison(2, "wilaya3", 200, proprietaires.get(0), Transaction.vente, 10000000,
+        Bien b2 = new Maison(2, "wilaya3", 200, Proprietaire.proprietaires.get(0), Transaction.vente, 10000000,
                 true, "avec jardin", "2020-01-02", Wilaya.codeToWilaya(3), "photo",
                 3,true, 1, true, 20, 20);
 
-        Bien b3 = new Terrain(3, "hydra", 500, proprietaires.get(0), Transaction.vente,
+        Bien b3 = new Terrain(3, "hydra", 500, Proprietaire.proprietaires.get(0), Transaction.vente,
                 20000000, true, "zone calme", "2019-01-03", Wilaya.codeToWilaya(3),
                 "photo", StatutJuridique.livret, 3 );
 
-        Bien b4 = new Appartement(4, "said hamdine", 100, proprietaires.get(1), Transaction.location,
+        Bien b4 = new Appartement(4, "said hamdine", 100, Proprietaire.proprietaires.get(1), Transaction.location,
                 40000, true, "","2019-01-04", Wilaya.codeToWilaya(3),
                 "Photo", 3, true,1,  true, true);
 
-        Bien b5 = new Maison(5, "zouaghi", 160, proprietaires.get(2), Transaction.location, 150000,
+        Bien b5 = new Maison(5, "zouaghi", 160, Proprietaire.proprietaires.get(2), Transaction.location, 150000,
                 true, "avec jardin", "2019-04-02", Wilaya.codeToWilaya(2), "photo",
                 3,false, 1, false, 10, 0);
 
-        Bien b6 = new Appartement(6, "centre ville", 50, proprietaires.get(1),
+        Bien b6 = new Appartement(6, "centre ville", 50, Proprietaire.proprietaires.get(1),
                 Transaction.location, 60000, true, "","2019-06-04",
                 Wilaya.codeToWilaya(3), "Photo", 1, false,6,  false, false);
 
-        Bien b7 = new Terrain(7, "babezouar", 650, proprietaires.get(0), Transaction.echange,
+        Bien b7 = new Terrain(7, "babezouar", 650, Proprietaire.proprietaires.get(0), Transaction.echange,
                 18000000, true, "zone industrielle", "2019-08-26", Wilaya.codeToWilaya(1),
                 "photo", StatutJuridique.livret, 1);
 
-        Bien b8 = new Maison(8, "El Biar", 200, proprietaires.get(2), Transaction.echange, 14000000,
+        Bien b8 = new Maison(8, "El Biar", 200, Proprietaire.proprietaires.get(2), Transaction.echange, 14000000,
                 true, "avec jardin", "2020-01-06", Wilaya.codeToWilaya(2), "photo",
                 3,false, 1, true, 0, 0);
 

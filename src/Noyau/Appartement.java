@@ -99,23 +99,6 @@ public class Appartement extends Habitable {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Override
     public void afficher() {
 

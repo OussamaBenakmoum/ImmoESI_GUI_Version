@@ -29,7 +29,7 @@ import java.util.Scanner;
 public class Controller implements Initializable {
 
 
-    Agence ImmoESI = new Agence();
+    public Agence ImmoESI = new Agence();
     Admin ad = new Admin("IMMOESI","0000");
 
 
@@ -39,10 +39,6 @@ public class Controller implements Initializable {
      *
      */
 
-    @FXML
-    private ChoiceBox<String> typeTransactionChoiceBox = new ChoiceBox<String>();
-    @FXML
-    private ChoiceBox<String> propsChoiceBox = new ChoiceBox<String>();
 
 
 
@@ -300,7 +296,7 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
                         case '1':prop = ImmoESI.selectProp();
                             break;
                         case '2':prop =  new Proprietaire();
-                            ImmoESI.proprietaires.add(prop);
+                            Proprietaire.proprietaires.add(prop);
                             break;
                         default: System.out.println("choix 1 ou 2");
                             break;
@@ -357,34 +353,6 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
 
 /**************************************************/
 
-    public void creerPropDialogBox (ActionEvent event) throws IOException {
-
-        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/CreerProp.fxml"));
-        Scene sampscene = new Scene(samp);
-        Stage window = new Stage();
-
-        window.initModality(Modality.APPLICATION_MODAL);// to still use other windeows
-        window.setTitle("Créer un nouveau proprietaire");
-
-        window.setScene(sampscene);
-        window.setResizable(false);
-        window.showAndWait();
-
-
-
-    }
-
-   public void creerProp(ActionEvent event){
-       Proprietaire prop = new Proprietaire(0, nomTextField.toString(), prenomTextField.toString(),
-               emailTextField.toString(),phoneTextfield.toString(), adressTextField.toString() );
-       ImmoESI.proprietaires.add(prop);
-       //propsChoiceBox.getItems().add(prop.getNom()+" "+prop.getPrenom());
-       System.out.println("hey");
-       for (Proprietaire propre: ImmoESI.proprietaires
-       ) {propsChoiceBox.getItems().add(propre.getNom()+" "+propre.getPrenom());
-       }
-
-   }
 
 
 /********************************************/
@@ -410,19 +378,7 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
-        ImmoESI.ouvrirFicherProprietaires("proprietaires.csv");
-
-        Wilaya.ouvrirFichierPrix("PrixWilayas.csv");
-
         ImmoESI.declarationsBiens();
-
-        typeTransactionChoiceBox.getItems().add("Vente");
-        typeTransactionChoiceBox.getItems().add("Location");
-        typeTransactionChoiceBox.getItems().add("Echange");
-
-        for (Proprietaire prop: ImmoESI.proprietaires
-             ) {propsChoiceBox.getItems().add(prop.getNom()+" "+prop.getPrenom());
-        }
 
 
         Image image = new Image("images/Immoesi.png");
@@ -437,8 +393,6 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
         Image addicon = new Image("images/addUser.png");
         addIcon.setImage(addicon);
 
-        Image plus = new Image("images/plus.png");
-        plusIcon.setImage(plus);
 
         lockIcon.setImage(new Image("images/locked.png"));
 

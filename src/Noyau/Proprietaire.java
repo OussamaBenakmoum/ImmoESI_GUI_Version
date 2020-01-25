@@ -1,7 +1,13 @@
 package Noyau;
 
+
+import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,6 +21,7 @@ public class Proprietaire
     private String adresse;
     private ArrayList<Bien> biens = new ArrayList<Bien>();
     static int nbProps=0;
+    public static ArrayList<Proprietaire> proprietaires = new ArrayList<Proprietaire>();
 
 
     public Proprietaire(){
@@ -43,6 +50,8 @@ public class Proprietaire
         this.adrMail = adrMail;
         this.tel = tel;
         this.adresse = adresse;
+
+        proprietaires.add(this);
     }
 
 
@@ -118,6 +127,60 @@ public class Proprietaire
 
 
 
+
+    /** Gestion des fichier */
+    public static void ouvrirFicherProprietaires(String filename)
+    /** cette procedure sert à charger les données depuis le fichier "filename" des proprétaires
+
+     */
+
+    {
+        Path pathToFile = Paths.get(filename);
+
+        // create an instance of BufferedReader
+        // using try with resource, Java 7 feature to close resources
+        try (BufferedReader br = Files.newBufferedReader(pathToFile,
+                StandardCharsets.UTF_8)) {
+
+            // read the first line from the text file
+            String line = br.readLine();
+            line = br.readLine();
+
+
+            // loop until all lines are read
+            while (line != null) {
+
+                // use string.split to load a string array with the values from
+                // each line of
+                // the file, using a comma as the delimiter
+                String[] attributes = line.split(";");
+
+                Proprietaire prop = new Proprietaire(Integer.parseInt(attributes[0]),attributes[1], attributes[2],  attributes[3],  attributes[4], attributes[5]);
+                // adding un proprietaire into ArrayList
+                //proprietaires.add(prop);
+                // read next line before looping
+                // if end of file reached, line would be null
+                line = br.readLine();
+            }
+
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void ajouterAuFichier() throws IOException {
         FileWriter csvWriter = new FileWriter("proprietaires.csv", true);
 
@@ -131,6 +194,17 @@ public class Proprietaire
 
 
     }
+
+
+    public static Proprietaire stringToProprietaire(String nomPrenomTextField){
+        for (Proprietaire prop:proprietaires
+             ) {if ((prop.getNom()+" "+prop.getPrenom()).equals(nomPrenomTextField)) {
+                    return prop;
+                 }
+        }
+        return null;
+    }
+
 
 
     public static final String RESET = "\u001B[0m";

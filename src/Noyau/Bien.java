@@ -17,7 +17,7 @@ public abstract class Bien implements Comparable<Bien>
     protected Wilaya wilaya;
     protected String photo;
     protected Transaction transaction;
-    static int nbBiens;
+    public static int nbBiens;
 
     public LocalDate getDateAjout() {
         return dateAjout;

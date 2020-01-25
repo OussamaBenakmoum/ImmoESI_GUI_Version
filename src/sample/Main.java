@@ -3,6 +3,9 @@ package sample;
 
 
 
+import Noyau.Agence;
+import Noyau.Proprietaire;
+import Noyau.Wilaya;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,10 +16,16 @@ import javafx.stage.Stage;
 public class Main extends Application {
     static Stage primaire;
 
+
     Image programIcon = new Image("images/LOGO.png");
     @Override
     public void start(Stage primaryStage) throws Exception{
-        
+
+        Proprietaire.ouvrirFicherProprietaires("proprietaires.csv");
+        Wilaya.ouvrirFichierPrix("PrixWilayas.csv");
+
+
+
         Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/sample.fxml"));
         primaryStage.setTitle("ImmoESI");
 
