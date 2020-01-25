@@ -1,8 +1,6 @@
-package sample;
+package Noyau;
 
-import javax.sql.rowset.serial.SerialStruct;
 import java.time.LocalDate;
-import java.util.*;
 
 public abstract class Habitable extends Bien
 {

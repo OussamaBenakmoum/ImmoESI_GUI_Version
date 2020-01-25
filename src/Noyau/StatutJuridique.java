@@ -1,4 +1,4 @@
-package sample;
+package Noyau;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

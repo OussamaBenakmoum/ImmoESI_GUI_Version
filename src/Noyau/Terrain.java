@@ -1,11 +1,8 @@
-package sample;
-
-import jdk.swing.interop.SwingInterOpUtils;
+package Noyau;
 
 import java.time.LocalDate;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.Date;
 
 class Terrain extends Bien {
 

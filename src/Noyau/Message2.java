@@ -1,6 +1,5 @@
-package sample;
+package Noyau;
 import javax.mail.*;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
@@ -20,7 +19,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-class Message2 {
+public class Message2 {
     private String nomExpiditeur;
     private String email;
     private String textMessage;

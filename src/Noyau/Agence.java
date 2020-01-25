@@ -1,4 +1,4 @@
-package sample;
+package Noyau;
 
 import javax.mail.MessagingException;
 

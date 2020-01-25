@@ -1,12 +1,8 @@
-package sample;
+package Noyau;
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.Scanner;
 
 
-
-
-abstract class Bien implements Comparable<Bien>
+public abstract class Bien implements Comparable<Bien>
 {
     protected int matricule;// matricule du bien
     protected String addresse;

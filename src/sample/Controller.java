@@ -1,9 +1,13 @@
 package sample;
 
+
+
+import Noyau.*;
+
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,17 +18,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
-import java.io.PipedReader;
 import java.net.URL;
 import java.util.InputMismatchException;
-import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 public class Controller implements Initializable {
 
@@ -41,10 +41,14 @@ public class Controller implements Initializable {
 
     @FXML
     private ChoiceBox<String> typeTransactionChoiceBox = new ChoiceBox<String>();
+    @FXML
+    private ChoiceBox<String> propsChoiceBox = new ChoiceBox<String>();
+
+
 
     public void GoToAdmin (ActionEvent event) throws IOException
     {
-        Parent admin = FXMLLoader.load(getClass().getResource("PageAdmin.fxml"));
+        Parent admin = FXMLLoader.load(getClass().getResource("../fxmlFiles/PageAdmin.fxml"));
         Scene adminscene = new Scene(admin);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
@@ -62,7 +66,7 @@ public class Controller implements Initializable {
 
     public void GoToPublic (ActionEvent event) throws IOException
     {
-        Parent publiq = FXMLLoader.load(getClass().getResource("PagePublic.fxml"));
+        Parent publiq = FXMLLoader.load(getClass().getResource("../fxmlFiles/PagePublic.fxml"));
         Scene pubscene = new Scene(publiq);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
@@ -75,7 +79,7 @@ public class Controller implements Initializable {
 
     public void GoBACK (ActionEvent event) throws IOException
     {
-        Parent samp = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/sample.fxml"));
         Scene sampscene = new Scene(samp);
 
 
@@ -95,7 +99,7 @@ public class Controller implements Initializable {
         boolean exist = true;
         if (exist)
         {
-            Parent samp = FXMLLoader.load(getClass().getResource("MenuAdmin.fxml"));
+            Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/MenuAdmin.fxml"));
             Scene sampscene = new Scene(samp);
             Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
             window.setScene(sampscene);
@@ -123,7 +127,7 @@ public class Controller implements Initializable {
 
     public void GoBACKADMENU (ActionEvent event) throws IOException
     {
-        Parent samp = FXMLLoader.load(getClass().getResource("MenuAdmin.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/MenuAdmin.fxml"));
         Scene sampscene = new Scene(samp);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(sampscene);
@@ -133,7 +137,7 @@ public class Controller implements Initializable {
 
     public void GoGestionBiens (ActionEvent event) throws IOException
     {
-        Parent samp = FXMLLoader.load(getClass().getResource("MenuGestionBiens.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/MenuGestionBiens.fxml"));
         Scene sampscene = new Scene(samp);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(sampscene);
@@ -145,7 +149,7 @@ public class Controller implements Initializable {
 
     public void GoAjouterBien (ActionEvent event) throws IOException
     {
-        Parent samp = FXMLLoader.load(getClass().getResource("AjouterBien.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/AjouterBien.fxml"));
         Scene sampscene = new Scene(samp);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(sampscene);
@@ -181,7 +185,7 @@ private TableView tableWilayas = new TableView();
 
 public void GoAfficherWilayas (ActionEvent event) throws IOException
 {
-    Parent samp = FXMLLoader.load(getClass().getResource("PagePublic.fxml"));
+    Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/PagePublic.fxml"));
 
     ObservableList<Wilaya> data = FXCollections.observableArrayList(Wilaya.wilayas);
     tableWilayas.setEditable(true);
@@ -234,7 +238,7 @@ public void GoAfficherWilayas (ActionEvent event) throws IOException
 
 public void GoMessage (ActionEvent event) throws IOException, MessagingException {
 
-    Parent samp = FXMLLoader.load(getClass().getResource("Message.fxml"));
+    Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/Message.fxml"));
     Scene sampscene = new Scene(samp);
     Stage window = new Stage();
 
@@ -272,15 +276,9 @@ public void mouseEnterButton(ActionEvent Event){
 }
 
 
-/****************************/
-
-
-/*****************************/
-
-
 
 public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
-    Parent samp = FXMLLoader.load(getClass().getResource("AfficherAnnonces.fxml"));
+    Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/AfficherAnnonces.fxml"));
     mainSubScene.setRoot(samp);
 }
 
@@ -289,14 +287,12 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
 
 //Ajouter bien
 
-
         public void ajouterBien() throws IOException {
             /* declarations */
             char choix;
             Scanner sc = new Scanner(System.in);
             Proprietaire prop=null;
             try{
-
 
                     choix = sc.next().charAt(0);
 
@@ -334,15 +330,15 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
 
     public void AjouterBienAppart(ActionEvent event) throws IOException {
 
-        Parent samp = FXMLLoader.load(getClass().getResource("AjouterBienAppart.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/AjouterBienAppart.fxml"));
         mainSubScene.setRoot(samp);
     }
     public void AjouterBienMaison(ActionEvent event) throws IOException {
-        Parent samp = FXMLLoader.load(getClass().getResource("AjouterBienMaison.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/AjouterBienMaison.fxml"));
         mainSubScene.setRoot(samp);
     }
     public void AjouterBienTerrain(ActionEvent event) throws IOException {
-        Parent samp = FXMLLoader.load(getClass().getResource("AjouterBienTerrain.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/AjouterBienTerrain.fxml"));
         mainSubScene.setRoot(samp);
     }
 
@@ -363,39 +359,36 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
 
     public void creerPropDialogBox (ActionEvent event) throws IOException {
 
-        Parent samp = FXMLLoader.load(getClass().getResource("CreerProp.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/CreerProp.fxml"));
         Scene sampscene = new Scene(samp);
         Stage window = new Stage();
 
         window.initModality(Modality.APPLICATION_MODAL);// to still use other windeows
         window.setTitle("Créer un nouveau proprietaire");
 
-
         window.setScene(sampscene);
         window.setResizable(false);
-        window.show();
+        window.showAndWait();
+
+
 
     }
 
-    public void creerProp(ActionEvent event){
-    Proprietaire prop = new Proprietaire(0, nomTextField.toString(), prenomTextField.toString(),
-                emailTextField.toString(),phoneTextfield.toString(), adressTextField.toString() );
-        ImmoESI.proprietaires.add(prop);
-        System.out.println("the name of the new owner"+ImmoESI.proprietaires.get(0).getNom());
+   public void creerProp(ActionEvent event){
+       Proprietaire prop = new Proprietaire(0, nomTextField.toString(), prenomTextField.toString(),
+               emailTextField.toString(),phoneTextfield.toString(), adressTextField.toString() );
+       ImmoESI.proprietaires.add(prop);
+       //propsChoiceBox.getItems().add(prop.getNom()+" "+prop.getPrenom());
+       System.out.println("hey");
+       for (Proprietaire propre: ImmoESI.proprietaires
+       ) {propsChoiceBox.getItems().add(propre.getNom()+" "+propre.getPrenom());
+       }
 
-    }
-
-
-
-
-
-
+   }
 
 
 /********************************************/
 //Images
-
-
 
     @FXML
     private ImageView imageview = new ImageView();
@@ -416,12 +409,21 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
+        ImmoESI.ouvrirFicherProprietaires("proprietaires.csv");
+
+        Wilaya.ouvrirFichierPrix("PrixWilayas.csv");
+
+        ImmoESI.declarationsBiens();
+
         typeTransactionChoiceBox.getItems().add("Vente");
         typeTransactionChoiceBox.getItems().add("Location");
         typeTransactionChoiceBox.getItems().add("Echange");
 
-        Wilaya.ouvrirFichierPrix("PrixWilayas.csv");
-        //ImmoESI.declarationsBiens();
+        for (Proprietaire prop: ImmoESI.proprietaires
+             ) {propsChoiceBox.getItems().add(prop.getNom()+" "+prop.getPrenom());
+        }
+
 
         Image image = new Image("images/Immoesi.png");
         imageview.setImage(image);
@@ -432,7 +434,6 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
         Image mailImage = new Image("images/mail.png");
         mailImView.setImage(mailImage);
 
-
         Image addicon = new Image("images/addUser.png");
         addIcon.setImage(addicon);
 
@@ -440,7 +441,6 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
         plusIcon.setImage(plus);
 
         lockIcon.setImage(new Image("images/locked.png"));
-
 
     }
 }

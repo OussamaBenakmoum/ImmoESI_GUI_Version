@@ -1,4 +1,4 @@
-package sample;
+package Noyau;
 
 import java.io.FileWriter;
 import java.io.IOException;

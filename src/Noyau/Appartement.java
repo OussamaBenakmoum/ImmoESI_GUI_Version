@@ -1,27 +1,26 @@
-package sample;
+package Noyau;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Maison extends Habitable
-{
-    private int nbEtages;
-    private boolean garage;
-    private float piscine;
-    private float jardin;
+public class Appartement extends Habitable {
+
+    private int etage;
+    private boolean simplexe;
+    private boolean ascenseur;
 
 
-    public Maison(Transaction tr, Proprietaire  prop) throws InputMismatchException, NegativeException {
+
+    public Appartement(Transaction tr, Proprietaire prop ) throws InputMismatchException, NegativeException {
         Scanner intSc = new Scanner(System.in); // Scanner for integers floats and the rest numbers
         Scanner sc = new Scanner(System.in);// for strings
-
-
             System.out.println("Saisir les informations du Bien: ");
+
             nbBiens++;
             this.matricule = nbBiens;
-            System.out.println("Matricule : " + this.matricule);
+            System.out.println("Matricule : "+nbBiens+1);
+
             System.out.println("Adresse: ");
             this.addresse = sc.nextLine();
 
@@ -33,76 +32,84 @@ public class Maison extends Habitable
             if (this.superficie < 0) {throw  new NegativeException();}
 
             System.out.println("Nombre de pieces:");
+            //this.nbPieces = intSc.nextInt();
+            //  int a=intSc.nextInt();
+            //if(a<0){throw new NegativeException();}
+            //this.nbPieces=a;
+
             this.nbPieces = intSc.nextInt();
             if (this.nbPieces < 0) {throw  new NegativeException();}
 
-            System.out.println("Nombre d'etages:");
-            this.nbEtages = intSc.nextInt();
-            if (this.nbEtages < 0) {throw  new NegativeException();}
+            System.out.println("Etage : ");
+            this.etage = intSc.nextInt();
+            if (this.etage < 0) {throw  new NegativeException();}
 
-            System.out.println("Garage : (o/n) o:oui, n:non: ");
-            char reponse = sc.next().charAt(0);// pour voir si l'immeuble a un garage?
-            this.garage = textToBool(reponse);
 
+            System.out.println("Ascenseur : (o/n) o:oui, n:non: ");
+            char reponse = sc.next().charAt(0);// pour voir si l'immeuble a un ascenseur?
+            this.ascenseur = textToBool(reponse);
+
+            System.out.println("Simplexe : (o/n) o:oui, n:non: ");
+            reponse = sc.next().charAt(0);// pour voir si l'appartement est simplexe?
+            this.simplexe = textToBool(reponse);
 
             System.out.println("Meuble : (o/n) o:oui, n:non: ");
             reponse = sc.next().charAt(0);// pour voir si l'appartement est meublé ou pas
             this.meuble = textToBool(reponse);
 
-            System.out.println("Piscine : (0 si non, Donner la surface si OUI): ");
-            this.piscine = intSc.nextFloat();
-
-            System.out.println("Jardin : (0 si non, Donner la surface si OUI): ");
-            this.jardin = intSc.nextFloat();
-            if (this.piscine + this.jardin > (this.superficie)/2) throw new InputMismatchException();
-
             System.out.println("Prix intial: ");
             this.prixInit = intSc.nextDouble();
-            if (this.prixInit < 0) throw  new NegativeException();
+            if (this.prixInit < 0) {throw  new NegativeException();}
+
 
             System.out.println("Negociable: (o/n) o:oui, n:non: ");
             reponse = sc.next().charAt(0); // pour voir si le prix est negociable ou non
             this.negociable = textToBool(reponse);
 
 
-            Scanner sc2 = new Scanner(System.in);
             System.out.println("Votre Descriptioon du Bien:");
+            Scanner sc2 = new Scanner(System.in);
             this.description = sc2.nextLine();
 
             this.transaction = tr;
             this.prop = prop;
-            dateAjout = LocalDate.now();
+            this.dateAjout = LocalDate.now();
 
 
+     }
 
+    public Appartement(int matricule, String addresse, float superficie, Proprietaire prop, Transaction transaction , double prixInit,
+                       boolean negociable, String description, LocalDate dateAjout, Wilaya wilaya, String photo, int nbPieces,
+                       boolean meuble, int etage, boolean simplexe, boolean ascenseur) {
+
+        super(matricule, addresse, superficie, prop,transaction,  prixInit, negociable, description, dateAjout, wilaya, photo, nbPieces, meuble);
+        this.etage = etage;
+        this.simplexe = simplexe;
+        this.ascenseur = ascenseur;
     }
 
-    public Maison(int matricule, String addresse, float superficie, Proprietaire prop, Transaction transaction, double prix_init,
-                  boolean negociable, String description, LocalDate dateAjout, Wilaya wialaya, String photo, int nbPieces,
-                  boolean meuble, int nbEtages, boolean garage, float piscine, float jardin)
+    public Appartement(int matricule, String addresse, float superficie, Proprietaire prop, Transaction transaction , double prixInit,
+                       boolean negociable, String description, String dateAjout, Wilaya wilaya, String photo, int nbPieces,
+                       boolean meuble, int etage, boolean simplexe, boolean ascenseur) {
 
-
-    {
-        super(matricule, addresse, superficie, prop, transaction, prix_init, negociable, description, dateAjout,wialaya, photo, nbPieces, meuble);
-        this.nbEtages = nbEtages;
-        this.garage = garage;
-        this.piscine = piscine;
-        this.jardin = jardin;
-
+        super(matricule, addresse, superficie, prop,transaction,  prixInit, negociable, description, dateAjout, wilaya, photo, nbPieces, meuble);
+        this.etage = etage;
+        this.simplexe = simplexe;
+        this.ascenseur = ascenseur;
     }
-    public Maison(int matricule, String addresse, float superficie, Proprietaire prop, Transaction transaction, double prix_init,
-                  boolean negociable, String description, String dateAjout, Wilaya wialaya, String photo, int nbPieces,
-                  boolean meuble, int nbEtages, boolean garage, float piscine, float jardin)
 
 
-    {
-        super(matricule, addresse, superficie, prop, transaction, prix_init, negociable, description, dateAjout,wialaya, photo, nbPieces, meuble);
-        this.nbEtages = nbEtages;
-        this.garage = garage;
-        this.piscine = piscine;
-        this.jardin = jardin;
 
-    }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -111,21 +118,25 @@ public class Maison extends Habitable
 
     @Override
     public void afficher() {
-        System.out.println("Maison * "+this.transaction);
+
+        System.out.println("Appartement  * " + this.transaction);
         System.out.println("Ajoute le :"+this.dateAjout.toString());
         super.afficher();
-        System.out.println("Nombre d'etages :"+this.nbEtages + " | Jardin "+jardin+" m2"+" | Piscine : "+this.piscine+"m2");
+        System.out.println("Etage: "+etage+" eme Etage, \nOptions:\n1) Simplexe:"+boolToText(simplexe)+"\n2) Ascenseur : "+boolToText(ascenseur));
+
         if (transaction == Transaction.echange){
             System.out.println("Prix final(biens dans la meme wilaya) : "+calculPrix(this.transaction, true)+"  DA");
             System.out.println("Prix final : "+calculPrix(this.transaction, false)+"  DA");
         }
         else System.out.println("Prix final : "+calculPrix(this.transaction, true)+"  DA");
-        System.out.println("Bien de :"+this.prop.getPrenom()+" | "+this.prop.getPrenom()+" | "+"Tel :"+prop.getTel());
 
+        System.out.println("Bien de :"+this.prop.getPrenom()+" | "+this.prop.getPrenom()+" | "+"Tel :"+prop.getTel());
     }
 
+
+    @Override
     public void afficherCourt() {
-        System.out.println(">Maison  * " + this.transaction + " de :"+prop.getNom());
+        System.out.println("> Appartement  * " + this.transaction + " de :"+prop.getNom());
         super.afficherCourt();
         if (transaction == Transaction.echange){
             System.out.println("  >Prix final(biens dans la meme wilaya) : "+calculPrix(this.transaction, true)+"  DA");
@@ -135,11 +146,8 @@ public class Maison extends Habitable
 
     }
 
-
-
-
     @Override
-    double calculPrix(Transaction tr, boolean mmWilaya) //methode calcul prix pour une maison
+    public double calculPrix(Transaction tr, boolean mmWilaya) //pour appartement.
     {
         if (tr == Transaction.vente || tr == Transaction.echange )
         {
@@ -161,12 +169,12 @@ public class Maison extends Habitable
                     else prixFinal = prixInit * 1.025;
                 }
             }
-            //je vais ajouter la partie qui est speciale pour une maison
-            if (garage || piscine != 0 || jardin != 0) {prixFinal = prixFinal + 0.005 * prixInit;}
+            //je vais ajouter la partie qui est speciale pour un appartement
+            if (etage <= 2) { prixFinal = prixFinal + 50000 ;}
 
             if (tr == Transaction.echange)
             {
-                if (!(mmWilaya))
+                    if (!(mmWilaya))
                     prixFinal = prixFinal + 0.0025 * prixInit;
             }
         }
@@ -190,14 +198,13 @@ public class Maison extends Habitable
                     else prixFinal = prixInit * 1.025;
                 }
             }
-
-            if (piscine > 0)
-            {
-                prixFinal = prixFinal + 50000;
-            }
+            //la partie d'une appartement.
+            if (etage <= 2) { prixFinal = prixFinal + 5000;}
+            if (etage >= 6 && !ascenseur) {prixFinal = prixFinal - 500 * superficie ;}
         }
-    return prixFinal;
+        return prixFinal;
 
     }
+
 
 }

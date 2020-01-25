@@ -1,4 +1,4 @@
-package sample;
+package Noyau;
 import java.util.Scanner;
 
 public class Admin {

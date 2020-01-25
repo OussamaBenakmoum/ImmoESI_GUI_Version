@@ -2,30 +2,33 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ajouterAppart" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane fx:id="ajouterAppart" prefHeight="480.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
-      <Label layoutX="59.0" layoutY="26.0" text="Ajouter un appartement">
+      <Label layoutX="44.0" layoutY="14.0" text="Ajouter un appartement">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-        <Separator layoutX="59.0" layoutY="52.0" prefHeight="1.0" prefWidth="181.0" />
-        <VBox layoutX="59.0" layoutY="88.0" prefHeight="231.0" prefWidth="166.0" spacing="15.0">
+        <Separator layoutX="43.0" layoutY="40.0" prefHeight="1.0" prefWidth="181.0" />
+        <VBox layoutX="43.0" layoutY="170.0" prefHeight="231.0" prefWidth="170.0" spacing="15.0">
          <children>
             <Label text="Details">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField prefHeight="26.0" prefWidth="165.0" promptText="Matricule" />
+            <TextField prefHeight="26.0" prefWidth="168.0" promptText="Matricule" />
             <TextField prefHeight="26.0" prefWidth="165.0" promptText="Adresse" />
             <TextField prefHeight="26.0" prefWidth="165.0" promptText="Wilaya (code)" />
             <TextField prefHeight="26.0" prefWidth="165.0" promptText="Superficie (m²)" />
@@ -33,7 +36,7 @@
             <TextField prefHeight="26.0" prefWidth="165.0" promptText="Etage" />
          </children>
         </VBox>
-        <Button layoutX="592.0" layoutY="392.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="93.0" text="Créer" />
+        <Button layoutX="599.0" layoutY="414.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="93.0" text="Créer" />
       <VBox layoutX="380.0" layoutY="88.0" prefHeight="118.0" prefWidth="290.0" spacing="10.0">
          <children>
             <Label text="Options">
@@ -53,5 +56,21 @@
          </children>
       </VBox>
       <Separator layoutX="343.0" layoutY="70.0" orientation="VERTICAL" prefHeight="344.0" prefWidth="0.0" />
+      <VBox layoutX="43.0" layoutY="79.0" prefHeight="80.0" prefWidth="255.0">
+         <children>
+             <Label text="Propriétaire" />
+            <HBox prefHeight="43.0" prefWidth="222.0" spacing="15.0">
+               <children>
+                  <ChoiceBox fx:id="propsChoiceBox" prefHeight="26.0" prefWidth="170.0" />
+                  <Button mnemonicParsing="false" onAction="#creerPropDialogBox" prefHeight="30.0" prefWidth="32.0">
+                     <graphic>
+                        <ImageView fx:id="plusIcon" fitHeight="15.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic></Button>
+               </children>
+            </HBox>
+             <Label text="Transaction" />
+            <ChoiceBox fx:id="typeTransactionChoiceBox" prefHeight="26.0" prefWidth="170.0" />
+         </children>
+      </VBox>
     </children>
 </AnchorPane>
