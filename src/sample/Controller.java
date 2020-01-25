@@ -33,6 +33,15 @@ public class Controller implements Initializable {
     Admin ad = new Admin("IMMOESI","0000");
 
 
+    /**
+     * declarations
+     *
+     *
+     */
+
+    @FXML
+    private ChoiceBox<String> typeTransactionChoiceBox = new ChoiceBox<String>();
+
     public void GoToAdmin (ActionEvent event) throws IOException
     {
         Parent admin = FXMLLoader.load(getClass().getResource("PageAdmin.fxml"));
@@ -324,6 +333,7 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
 
 
     public void AjouterBienAppart(ActionEvent event) throws IOException {
+
         Parent samp = FXMLLoader.load(getClass().getResource("AjouterBienAppart.fxml"));
         mainSubScene.setRoot(samp);
     }
@@ -406,6 +416,9 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        typeTransactionChoiceBox.getItems().add("Vente");
+        typeTransactionChoiceBox.getItems().add("Location");
+        typeTransactionChoiceBox.getItems().add("Echange");
 
         Wilaya.ouvrirFichierPrix("PrixWilayas.csv");
         //ImmoESI.declarationsBiens();
@@ -427,8 +440,6 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
         plusIcon.setImage(plus);
 
         lockIcon.setImage(new Image("images/locked.png"));
-
-
 
 
     }

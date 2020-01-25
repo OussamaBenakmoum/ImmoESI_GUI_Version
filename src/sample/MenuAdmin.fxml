@@ -86,7 +86,7 @@
          </items>
       </ToolBar>
       <ImageView fitHeight="50.0" fitWidth="61.0" layoutX="10.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="28.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="admminIcon" fitHeight="50.0" fitWidth="51.0" layoutX="20.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
       <SubScene fx:id="mainSubScene" height="480.0" layoutX="188.0" layoutY="75.0" width="700.0">
          <root>
             <Region />

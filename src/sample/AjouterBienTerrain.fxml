@@ -12,7 +12,8 @@
 <?import javafx.scene.text.Font?>
 
 <?import javafx.scene.image.ImageView?>
-<AnchorPane fx:id="ajouterAppart" prefHeight="480.0" prefWidth="700.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<?import javafx.scene.control.ChoiceBox?>
+<AnchorPane fx:id="ajouterAppart" prefHeight="480.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
         <Label layoutX="44.0" layoutY="14.0" text="Ajouter un Terrain">
             <font>
@@ -43,18 +44,20 @@
             </children>
         </VBox>
         <Separator layoutX="343.0" layoutY="70.0" orientation="VERTICAL" prefHeight="344.0" prefWidth="0.0" />
-        <VBox layoutX="43.0" layoutY="79.0" prefHeight="80.0" prefWidth="243.0">
+        <VBox layoutX="43.0" layoutY="79.0" prefHeight="80.0" prefWidth="255.0">
             <children>
-                <HBox prefHeight="43.0" prefWidth="228.0" spacing="15.0">
+                <Label text="Propriétaire"/>
+                <HBox prefHeight="43.0" prefWidth="222.0" spacing="15.0">
                     <children>
-                        <ComboBox prefHeight="26.0" prefWidth="174.0" promptText="Propriétaire" />
-                        <Button mnemonicParsing="false" onAction="#creerPropDialogBox">
+                        <ChoiceBox prefWidth="150.0" />
+                        <Button mnemonicParsing="false" onAction="#creerPropDialogBox" prefHeight="30.0" prefWidth="32.0">
                             <graphic>
                                 <ImageView fx:id="plusIcon" fitHeight="15.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
                             </graphic></Button>
                     </children>
                 </HBox>
-                <ComboBox prefHeight="26.0" prefWidth="174.0" promptText="Transaction" />
+                <Label text="Transaction"/>
+                <ChoiceBox fx:id="typeTransactionChoiceBox" prefWidth="150.0" />
             </children>
         </VBox>
     </children>
