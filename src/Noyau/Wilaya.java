@@ -76,7 +76,16 @@ public class Wilaya {
         return wilayas.get(matriculeWilaya-1);
     }
 
+    public static Wilaya stringToWilaya(String nomWilaya){
 
+        for (Wilaya w:wilayas
+             ) {
+            if (w.nom.equals(nomWilaya))
+                return w;
+
+        }
+        return null;
+    }
 
     // setters and getters
     public String getNom() {

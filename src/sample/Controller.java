@@ -44,7 +44,7 @@ public class Controller implements Initializable {
 
     public void GoToAdmin (ActionEvent event) throws IOException
     {
-        Parent admin = FXMLLoader.load(getClass().getResource("../fxmlFiles/PageAdmin.fxml"));
+        Parent admin = FXMLLoader.load(getClass().getResource("PageAdmin.fxml"));
         Scene adminscene = new Scene(admin);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
@@ -62,7 +62,7 @@ public class Controller implements Initializable {
 
     public void GoToPublic (ActionEvent event) throws IOException
     {
-        Parent publiq = FXMLLoader.load(getClass().getResource("../fxmlFiles/PagePublic.fxml"));
+        Parent publiq = FXMLLoader.load(getClass().getResource("PagePublic.fxml"));
         Scene pubscene = new Scene(publiq);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
@@ -75,7 +75,7 @@ public class Controller implements Initializable {
 
     public void GoBACK (ActionEvent event) throws IOException
     {
-        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/sample.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("sample.fxml"));
         Scene sampscene = new Scene(samp);
 
 
@@ -95,7 +95,7 @@ public class Controller implements Initializable {
         boolean exist = true;
         if (exist)
         {
-            Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/MenuAdmin.fxml"));
+            Parent samp = FXMLLoader.load(getClass().getResource("MenuAdmin.fxml"));
             Scene sampscene = new Scene(samp);
             Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
             window.setScene(sampscene);
@@ -123,7 +123,7 @@ public class Controller implements Initializable {
 
     public void GoBACKADMENU (ActionEvent event) throws IOException
     {
-        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/MenuAdmin.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("MenuAdmin.fxml"));
         Scene sampscene = new Scene(samp);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(sampscene);
@@ -133,7 +133,7 @@ public class Controller implements Initializable {
 
     public void GoGestionBiens (ActionEvent event) throws IOException
     {
-        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/MenuGestionBiens.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("MenuGestionBiens.fxml"));
         Scene sampscene = new Scene(samp);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(sampscene);
@@ -145,7 +145,7 @@ public class Controller implements Initializable {
 
     public void GoAjouterBien (ActionEvent event) throws IOException
     {
-        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/AjouterBien.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("AjouterBien.fxml"));
         Scene sampscene = new Scene(samp);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(sampscene);
@@ -181,7 +181,7 @@ private TableView tableWilayas = new TableView();
 
 public void GoAfficherWilayas (ActionEvent event) throws IOException
 {
-    Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/PagePublic.fxml"));
+    Parent samp = FXMLLoader.load(getClass().getResource("PagePublic.fxml"));
 
     ObservableList<Wilaya> data = FXCollections.observableArrayList(Wilaya.wilayas);
     tableWilayas.setEditable(true);
@@ -234,7 +234,7 @@ public void GoAfficherWilayas (ActionEvent event) throws IOException
 
 public void GoMessage (ActionEvent event) throws IOException, MessagingException {
 
-    Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/Message.fxml"));
+    Parent samp = FXMLLoader.load(getClass().getResource("Message.fxml"));
     Scene sampscene = new Scene(samp);
     Stage window = new Stage();
 
@@ -274,7 +274,7 @@ public void mouseEnterButton(ActionEvent Event){
 
 
 public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
-    Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/AfficherAnnonces.fxml"));
+    Parent samp = FXMLLoader.load(getClass().getResource("AfficherAnnonces.fxml"));
     mainSubScene.setRoot(samp);
 }
 
@@ -326,15 +326,15 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
 
     public void AjouterBienAppart(ActionEvent event) throws IOException {
 
-        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/AjouterBienAppart.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("AjouterBienAppart.fxml"));
         mainSubScene.setRoot(samp);
     }
     public void AjouterBienMaison(ActionEvent event) throws IOException {
-        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/AjouterBienMaison.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("AjouterBienMaison.fxml"));
         mainSubScene.setRoot(samp);
     }
     public void AjouterBienTerrain(ActionEvent event) throws IOException {
-        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/AjouterBienTerrain.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("AjouterBienTerrain.fxml"));
         mainSubScene.setRoot(samp);
     }
 

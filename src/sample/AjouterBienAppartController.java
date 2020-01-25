@@ -1,7 +1,6 @@
 package sample;
 
 import Noyau.*;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +13,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.time.LocalDate;
@@ -67,6 +65,8 @@ here i will decalre  the texfields to create an appart
     @FXML
     private CheckBox simplexeCheckBox;
 
+    @FXML
+    private ChoiceBox<String> wilayasChoiceBox;
 
     /*******/
 
@@ -75,7 +75,7 @@ here i will decalre  the texfields to create an appart
 
 
 
-        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/test.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("test.fxml"));
         Scene sampscene = new Scene(samp);
         Stage window = new Stage();
 
@@ -112,7 +112,7 @@ here i will decalre  the texfields to create an appart
                 adresseTextField.getText(), Float.parseFloat(superficieTextField.getText()),
                 Proprietaire.stringToProprietaire(propsChoiceBox.getValue()),Transaction.valueOf(typeTransactionChoiceBox.getValue()),
                 Double.parseDouble(prixInitialTextField.getText()), false, descriptionTextArea.getText(),
-                LocalDate.now(), Wilaya.codeToWilaya(Integer.parseInt(wilayaCodeTextField.getText())),
+                LocalDate.now(), Wilaya.stringToWilaya(wilayasChoiceBox.getValue()),
                 "Photo", Integer.parseInt(nbPiecesTextField.getText()), meubleCheckBox.isSelected(),
                 Integer.parseInt(etageTextField.getText()), simplexeCheckBox.isSelected(), ascenseurCheckBox.isSelected());
         ap.afficher();
@@ -128,6 +128,13 @@ here i will decalre  the texfields to create an appart
         for (Proprietaire prop: Proprietaire.proprietaires
         ) {propsChoiceBox.getItems().add(prop.getNom()+" "+prop.getPrenom());
         }
+
+
+        for (Wilaya wil: Wilaya.wilayas
+             ) {wilayasChoiceBox.getItems().add(wil.getNom());
+        }
+
+
 
         Image plus = new Image("images/plus.png");
         plusIcon.setImage(plus);
