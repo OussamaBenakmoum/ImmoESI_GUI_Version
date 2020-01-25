@@ -101,7 +101,6 @@ public abstract class Bien implements Comparable<Bien>
 
     abstract double calculPrix(Transaction tr, boolean mmWilaya);
 
-
     protected boolean textToBool(String rep){
         rep.toLowerCase();
         return rep == "oui" || rep == "o";
@@ -109,7 +108,6 @@ public abstract class Bien implements Comparable<Bien>
     protected boolean textToBool(char rep){
         return rep == 'o' || rep == 'O';
     }
-
 
 
 

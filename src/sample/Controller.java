@@ -340,17 +340,6 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
 
 
 /**************************************************/
-    @FXML
-    private TextField nomTextField;
-    @FXML
-    private TextField prenomTextField;
-    @FXML
-    private TextField  adressTextField;
-    @FXML
-    private TextField emailTextField;
-    @FXML
-    private TextField phoneTextfield;
-
 /**************************************************/
 
 

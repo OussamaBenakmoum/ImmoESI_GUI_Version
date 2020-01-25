@@ -50,7 +50,7 @@
                 <HBox prefHeight="43.0" prefWidth="222.0" spacing="15.0">
                     <children>
                         <ChoiceBox fx:id="propsChoiceBox" prefHeight="26.0" prefWidth="170.0" />
-                        <Button mnemonicParsing="false" onAction="#creerPropDialogBox" prefHeight="30.0" prefWidth="32.0">
+                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="32.0">
                             <graphic>
                                 <ImageView fx:id="plusIcon" fitHeight="15.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
                             </graphic></Button>
