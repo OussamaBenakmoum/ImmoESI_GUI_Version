@@ -1,7 +1,6 @@
 package sample;
 
 import Noyau.*;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +13,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.time.LocalDate;
@@ -75,7 +73,7 @@ here i will decalre  the texfields to create an appart
 
 
 
-        Parent samp = FXMLLoader.load(getClass().getResource("../fxmlFiles/test.fxml"));
+        Parent samp = FXMLLoader.load(getClass().getResource("test.fxml"));
         Scene sampscene = new Scene(samp);
         Stage window = new Stage();
 

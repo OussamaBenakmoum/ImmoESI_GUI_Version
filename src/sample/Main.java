@@ -3,7 +3,6 @@ package sample;
 
 
 
-import Noyau.Agence;
 import Noyau.Proprietaire;
 import Noyau.Wilaya;
 import javafx.application.Application;
@@ -26,7 +25,7 @@ public class Main extends Application {
 
 
 
-        Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("ImmoESI");
 
         primaryStage.getIcons().add(programIcon);
