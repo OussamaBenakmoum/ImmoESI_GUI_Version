@@ -19,7 +19,7 @@ public class Agence {
 
     public ArrayList<Bien> biens = new ArrayList<>();
     //public ArrayList<Proprietaire> Proprietaire.proprietaires = Proprietaire.Proprietaire.proprietaires;
-    public TreeSet<Bien> treeBiens = new TreeSet<>();
+    public static TreeSet<Bien> treeBiens = new TreeSet<>();
     private Set<Bien> bienArchives = new HashSet<>();
 
 

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-class Terrain extends Bien {
+public class Terrain extends Bien {
 
     private StatutJuridique stat;
     private int nbrFacade;

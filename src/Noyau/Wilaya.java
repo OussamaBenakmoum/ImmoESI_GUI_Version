@@ -61,6 +61,7 @@ public class Wilaya {
         return wilayas;
 
     }
+
     public static void afficherListePrix() {
         int i = 1;
         for (Wilaya wil:wilayas) {

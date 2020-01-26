@@ -171,16 +171,6 @@ public class Proprietaire
 
 
 
-
-
-
-
-
-
-
-
-
-
     public void ajouterAuFichier() throws IOException {
         FileWriter csvWriter = new FileWriter("proprietaires.csv", true);
 
