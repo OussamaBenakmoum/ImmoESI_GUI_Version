@@ -11,7 +11,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Side;
 import javafx.scene.*;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
@@ -38,16 +40,17 @@ public class Controller implements Initializable {
      *
      *
      */
-
+    @FXML
+    private SubScene mainSubScene;
 
 
 
     public void GoToAdmin (ActionEvent event) throws IOException
     {
         Parent admin = FXMLLoader.load(getClass().getResource("PageAdmin.fxml"));
+
         Scene adminscene = new Scene(admin);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
 
         window.setScene(adminscene);
         window.setResizable(false);
@@ -95,9 +98,18 @@ public class Controller implements Initializable {
         boolean exist = true;
         if (exist)
         {
+
+
+           // Parent board = FXMLLoader.load(getClass().getResource("TableauDeBord.fxml"));
+           // mainSubScene.setRoot(board);
+
+
             Parent samp = FXMLLoader.load(getClass().getResource("MenuAdmin.fxml"));
             Scene sampscene = new Scene(samp);
             Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+
+
             window.setScene(sampscene);
             window.setResizable(true);
             window.show();
@@ -170,8 +182,7 @@ public class Controller implements Initializable {
 
 
 /*****************************************************************************************************************************************/
-@FXML
-private SubScene mainSubScene;
+
 
 /******************************************************************/
 
@@ -363,8 +374,34 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
     private ImageView lockIcon = new ImageView();
 
 
+    @FXML
+    private PieChart pieChart = new PieChart();
+
+
+    @FXML
+    private PieChart pieChart2 = new PieChart();
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        PieChart.Data slice1 = new PieChart.Data("Maison", 7);
+        PieChart.Data slice2 = new PieChart.Data("Appartement", 2);
+
+        pieChart.getData().add(slice1);
+        pieChart.getData().add(slice2);
+
+
+        PieChart.Data slice1P2 = new PieChart.Data("Vente", 7);
+        PieChart.Data slice2P2 = new PieChart.Data("Location", 2);
+        PieChart.Data slice3P2 = new PieChart.Data("Location", 2);
+
+        pieChart2.getData().add(slice1P2);
+        pieChart2.getData().add(slice2P2);
+        pieChart2.getData().add(slice3P2);
+
+        //pieChart.setLegendSide(Side.LEFT);
+
 
 
         ImmoESI.declarationsBiens();

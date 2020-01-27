@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ajouterAppart" prefHeight="656.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AjouterBienMaisonController">
+<AnchorPane fx:id="ajouterAppart" prefHeight="656.0" prefWidth="700.0" style="-fx-background-color: opaque;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AjouterBienMaisonController">
     <children>
       <ScrollPane prefHeight="480.0" prefWidth="700.0">
          <content>

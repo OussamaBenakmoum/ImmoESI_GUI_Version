@@ -7,10 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
@@ -104,10 +101,11 @@ here i will decalre  the texfields to create an appart
     }
 
 
-
     public void creerBienAppart(ActionEvent event){
- LocalDate.now();
+    LocalDate.now();
+    String err=null;
 
+    try {
         Bien ap = new Appartement(Integer.parseInt(matriculeTextField.getText()),
                 adresseTextField.getText(), Float.parseFloat(superficieTextField.getText()),
                 Proprietaire.stringToProprietaire(propsChoiceBox.getValue()),Transaction.valueOf(typeTransactionChoiceBox.getValue()),
@@ -115,7 +113,21 @@ here i will decalre  the texfields to create an appart
                 LocalDate.now(), Wilaya.stringToWilaya(wilayasChoiceBox.getValue()),
                 "Photo", Integer.parseInt(nbPiecesTextField.getText()), meubleCheckBox.isSelected(),
                 Integer.parseInt(etageTextField.getText()), simplexeCheckBox.isSelected(), ascenseurCheckBox.isSelected());
+        Agence.treeBiens.add(ap);
         ap.afficher();
+    }catch (Exception e){
+        err = e.getMessage();
+    }
+
+        if(err!=null){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION );
+        alert.setTitle("ERREUR d'entrée");
+        alert.setHeaderText(null);
+        alert.setContentText("Erreur lors du remplissage les champs ! "+"\n"+
+                "Veuillez revoir vos entrées de données\n "+err);
+        alert.showAndWait();
+    }
+
     }
 
 

@@ -115,7 +115,8 @@ here i will decalre  the texfields to create an appart
 
     public void creerBienMaison(ActionEvent event){
  LocalDate.now();
-
+    String err = null;
+     try {
         Bien maison;
         maison = new Maison(Integer.parseInt(matriculeTextField.getText()),
                 adresseTextField.getText(), Float.parseFloat(superficieTextField.getText()),
@@ -128,6 +129,19 @@ here i will decalre  the texfields to create an appart
                 Float.parseFloat(jardinTextField.getText()));
         Agence.treeBiens.add(maison);
         maison.afficher();
+
+    }catch (Exception e){
+        err = e.getMessage();
+    }
+
+        if(err!=null){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION );
+        alert.setTitle("ERREUR d'entrée");
+        alert.setHeaderText(null);
+        alert.setContentText("Erreur lors du remplissage les champs ! "+"\n"+
+                "Veuillez revoir vos entrées de données\n "+err);
+        alert.showAndWait();
+    }
     }
 
 
