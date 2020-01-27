@@ -350,6 +350,11 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
     }
 
 
+    public void tabDeBord(ActionEvent event) throws IOException {
+        Parent samp = FXMLLoader.load(getClass().getResource("TableaudeBord.fxml"));
+        mainSubScene.setRoot(samp);
+    }
+
 /**************************************************/
 /**************************************************/
 
@@ -385,20 +390,7 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        PieChart.Data slice1 = new PieChart.Data("Maison", 7);
-        PieChart.Data slice2 = new PieChart.Data("Appartement", 2);
 
-        pieChart.getData().add(slice1);
-        pieChart.getData().add(slice2);
-
-
-        PieChart.Data slice1P2 = new PieChart.Data("Vente", 7);
-        PieChart.Data slice2P2 = new PieChart.Data("Location", 2);
-        PieChart.Data slice3P2 = new PieChart.Data("Location", 2);
-
-        pieChart2.getData().add(slice1P2);
-        pieChart2.getData().add(slice2P2);
-        pieChart2.getData().add(slice3P2);
 
         //pieChart.setLegendSide(Side.LEFT);
 

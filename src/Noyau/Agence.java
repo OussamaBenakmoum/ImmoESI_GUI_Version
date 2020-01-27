@@ -673,6 +673,38 @@ public class Agence {
 
     }
 
+
+
+
+    public static int getNbrBiensSelonTransaction(Transaction tr){
+        int nb =  0;
+
+        for (Bien b:treeBiens
+             ) {
+            if(b.transaction == tr)
+                nb++;
+
+        }
+        return nb;
+    }
+    public static int getNbrBiensSelonType(String typeBien){
+        int nb =  0;
+
+        for (Bien b:treeBiens
+        ) {
+            if(b.getClass().getSimpleName().equals(typeBien))
+                nb++;
+        }
+        return nb;
+    }
+
+
+
+
+
+
+
+
     // colors
     public static final String RESET = "\u001B[0m";
     public static final String BLACK = "\u001B[30m";

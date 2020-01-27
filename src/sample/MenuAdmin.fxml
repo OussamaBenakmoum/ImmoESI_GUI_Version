@@ -29,41 +29,39 @@
       </Pane>
       <VBox layoutY="70.0" prefHeight="503.0" prefWidth="182.0" spacing="2.0" style="-fx-background-color: #F9C784;">
          <children>
-            <Accordion>
-              <panes>
-                <TitledPane animated="false" text="Ajouter Bien">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="181.0">
-                           <children>
-                              <VBox prefHeight="93.0" prefWidth="182.0" spacing="5.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" onAction="#AjouterBienAppart" prefHeight="26.0" prefWidth="184.0" style="-fx-background-color: #577280;" text="Ajouter Appart" textFill="#fafafa">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                    </Button>
-                                    <Button mnemonicParsing="false" onAction="#AjouterBienMaison" prefHeight="26.0" prefWidth="184.0" style="-fx-background-color: #577280;" text="Ajouter Maison" textFill="#fafafa">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                    </Button>
-                                    <Button mnemonicParsing="false" onAction="#AjouterBienTerrain" prefHeight="26.0" prefWidth="184.0" style="-fx-background-color: #577280;" text="Ajouter Terrain" textFill="#fafafa">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                    </Button>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </TitledPane>
-              </panes>
-            </Accordion>
-            <Button mnemonicParsing="false" onAction="#AfficheAnnonceButtonPushed" prefHeight="17.0" prefWidth="182.0" style="-fx-background-color: #577280;" text="Afficher annonces" textAlignment="CENTER" textFill="#fafafa">
+            <Accordion />
+            <Button mnemonicParsing="false" onAction="#tabDeBord" prefHeight="17.0" prefWidth="182.0" style="-fx-background-color: #577280;" text="Tableau de bord" textAlignment="CENTER" textFill="#fafafa">
                <font>
                   <Font name="System Bold" size="12.0" />
-               </font></Button>
+               </font>
+            </Button>
+          <TitledPane animated="false" text="Ajouter Bien">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="181.0">
+                     <children>
+                        <VBox prefHeight="93.0" prefWidth="182.0" spacing="5.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#AjouterBienAppart" prefHeight="26.0" prefWidth="184.0" style="-fx-background-color: #577280;" text="Ajouter Appart" textFill="#fafafa">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#AjouterBienMaison" prefHeight="26.0" prefWidth="184.0" style="-fx-background-color: #577280;" text="Ajouter Maison" textFill="#fafafa">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#AjouterBienTerrain" prefHeight="26.0" prefWidth="184.0" style="-fx-background-color: #577280;" text="Ajouter Terrain" textFill="#fafafa">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
             <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="182.0" style="-fx-background-color: #577280;" text="Recherche par critere(s)" textFill="#fafafa">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -80,6 +78,11 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
+            <Button mnemonicParsing="false" onAction="#AfficheAnnonceButtonPushed" prefHeight="17.0" prefWidth="182.0" style="-fx-background-color: #577280;" text="Afficher annonces" textAlignment="CENTER" textFill="#fafafa">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
       <ToolBar layoutY="566.0" prefHeight="40.0" prefWidth="902.0">
