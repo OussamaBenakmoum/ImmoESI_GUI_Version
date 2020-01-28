@@ -2,12 +2,7 @@ package Noyau;
 
 import javax.mail.MessagingException;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 import java.io.*;
 
@@ -522,7 +517,7 @@ public class Agence {
         return rep == 'o' || rep == 'O';
     }
 
-    public void declarationsBiens(){
+    public static void declarationsBiens(){
         Bien b1 = new Appartement(1, "31 cite afak afak", 120, Proprietaire.proprietaires.get(1), Transaction.vente,
                 4000000, false, "","2019-01-01", Wilaya.codeToWilaya(1),
                 "Photo", 4, false,1,  false, false);

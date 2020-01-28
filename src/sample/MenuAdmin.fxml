@@ -70,7 +70,7 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="103.0" mnemonicParsing="false" prefHeight="2.0" prefWidth="182.0" style="-fx-background-color: #577280;" text="Afficher Propriétaire" textFill="#fafafa">
+            <Button layoutX="10.0" layoutY="103.0" mnemonicParsing="false" onAction="#afficherPropButtonPushed" prefHeight="2.0" prefWidth="182.0" style="-fx-background-color: #577280;" text="Afficher Propriétaires" textFill="#fafafa">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>

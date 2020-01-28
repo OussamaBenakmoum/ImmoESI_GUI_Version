@@ -194,30 +194,8 @@ private TableView tableWilayas = new TableView();
 
 public void GoAfficherWilayas (ActionEvent event) throws IOException
 {
-    Parent samp = FXMLLoader.load(getClass().getResource("PagePublic.fxml"));
-
-    ObservableList<Wilaya> data = FXCollections.observableArrayList(Wilaya.wilayas);
-    tableWilayas.setEditable(true);
-
-    TableColumn wilayaNameCol = new TableColumn("Wilaya");
-
-    wilayaNameCol.setCellValueFactory(
-            new PropertyValueFactory<Wilaya,String>("nom")
-    );
-
-    TableColumn prixCol = new TableColumn("prix du Metre");
-    prixCol.setCellValueFactory(
-            new PropertyValueFactory<Wilaya, String>("prixM"));
-
-    tableWilayas.setItems(data);
-    tableWilayas.getColumns().addAll(wilayaNameCol, prixCol);
-
-    tableWilayas.setLayoutX(100);
-    tableWilayas.setLayoutY(70);
-    tableWilayas.setPrefHeight(200);
-    tableWilayas.setPrefWidth(200);
-
-    mainSubScene.setRoot(tableWilayas);
+    Parent samp = FXMLLoader.load(getClass().getResource("AffichageWilayas.fxml"));
+    mainSubScene.setRoot(samp);
 
 
 }
@@ -292,7 +270,13 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
 }
 
 
-/******************************************************/
+    public void afficherPropButtonPushed(ActionEvent event) throws IOException {
+        Parent samp = FXMLLoader.load(getClass().getResource("AfficherProps.fxml"));
+        mainSubScene.setRoot(samp);
+    }
+
+
+    /******************************************************/
 
 //Ajouter bien
 
@@ -335,6 +319,9 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
             }
 
     }
+
+
+
 
 
     public void AjouterBienAppart(ActionEvent event) throws IOException {
@@ -400,8 +387,6 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
         //pieChart.setLegendSide(Side.LEFT);
 
 
-
-        ImmoESI.declarationsBiens();
 
 
         Image image = new Image("images/Immoesi.png");

@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 
@@ -35,7 +36,7 @@ public class bienListViewCell extends ListCell<Bien> {
     private Label decriptionLabel = new Label();
 
     @FXML
-    private AnchorPane anchorPane;
+    private GridPane gridPane;
 
     FXMLLoader mLLoader;
 /*
@@ -75,7 +76,7 @@ public class bienListViewCell extends ListCell<Bien> {
 
 
             setText(null);
-            setGraphic(anchorPane);
+            setGraphic(gridPane);
 
         }
     }

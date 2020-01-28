@@ -1,52 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="157.0" prefWidth="557.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.bienListViewCell">
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="bienIcon" fitHeight="100.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="prix" layoutX="404.0" layoutY="123.0" text="1000000 DA">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Label>
-      <VBox layoutX="124.0" prefHeight="118.0" prefWidth="235.0" spacing="10.0">
-         <children>
-            <HBox prefHeight="11.0" prefWidth="300.0" spacing="10.0">
-               <children>
-                  <Label fx:id="typeBienLabel" text="TypeBien">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label text="-">
-                     <HBox.margin>
-                        <Insets top="5.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label fx:id="typeTransactionLabel" style="-fx-opacity: .7;" text="Transaction">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets top="2.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
-            </HBox>
-            <Label fx:id="dateAjoutLabel" text="Date" />
-            <Label fx:id="adresseLabel" text="Adresse" />
-            <Label fx:id="decriptionLabel" text="Description" />
-         </children>
-         <padding>
-            <Insets left="10.0" top="10.0" />
-         </padding>
-      </VBox>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="48.0" stroke="BLACK" strokeType="INSIDE" width="113.0" />
    </children>
-</AnchorPane>
+</HBox>

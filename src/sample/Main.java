@@ -3,6 +3,7 @@ package sample;
 
 
 
+import Noyau.Agence;
 import Noyau.Proprietaire;
 import Noyau.Wilaya;
 import javafx.application.Application;
@@ -22,6 +23,8 @@ public class Main extends Application {
 
         Proprietaire.ouvrirFicherProprietaires("proprietaires.csv");
         Wilaya.ouvrirFichierPrix("PrixWilayas.csv");
+
+        Agence.declarationsBiens();
 
 
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
