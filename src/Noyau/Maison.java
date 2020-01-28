@@ -138,7 +138,7 @@ public class Maison extends Habitable
 
 
     @Override
-    double calculPrix(Transaction tr, boolean mmWilaya) //methode calcul prix pour une maison
+    public double calculPrix(Transaction tr, boolean mmWilaya) //methode calcul prix pour une maison
     {
         if (tr == Transaction.vente || tr == Transaction.echange )
         {

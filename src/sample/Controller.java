@@ -8,6 +8,7 @@ import Noyau.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,6 +19,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.web.WebEngine;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -386,6 +388,9 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
     @FXML
     private PieChart pieChart2 = new PieChart();
 
+    @FXML
+    Hyperlink link;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -413,6 +418,17 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
 
 
         lockIcon.setImage(new Image("images/locked.png"));
+
+
+
+
+
+        /*
+        hyper link
+         */
+
+
+
 
     }
 }

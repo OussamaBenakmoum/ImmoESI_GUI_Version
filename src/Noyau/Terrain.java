@@ -131,7 +131,7 @@ public class Terrain extends Bien {
 
 
     @Override
-    double calculPrix(Transaction tr, boolean mmWilaya) //methode calcul prix pour un terrain.
+    public double calculPrix(Transaction tr, boolean mmWilaya) //methode calcul prix pour un terrain.
     {
         if (tr == Transaction.vente || tr == Transaction.echange )
         {

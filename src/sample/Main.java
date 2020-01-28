@@ -24,7 +24,6 @@ public class Main extends Application {
         Wilaya.ouvrirFichierPrix("PrixWilayas.csv");
 
 
-
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("ImmoESI");
 

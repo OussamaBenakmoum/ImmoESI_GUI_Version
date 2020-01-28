@@ -131,11 +131,17 @@ here i will decalre  the texfields to create an appart
     }
 
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         typeTransactionChoiceBox.getItems().add("vente");
         typeTransactionChoiceBox.getItems().add("location");
         typeTransactionChoiceBox.getItems().add("echange");
+
+
+
+
+
 
         for (Proprietaire prop: Proprietaire.proprietaires
         ) {propsChoiceBox.getItems().add(prop.getNom()+" "+prop.getPrenom());
