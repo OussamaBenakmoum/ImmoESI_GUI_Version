@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <ToolBar layoutY="566.0" prefHeight="40.0" prefWidth="833.0">
+      <ToolBar layoutY="680.0" prefHeight="40.0" prefWidth="1280.0">
          <items>
             <Button mnemonicParsing="false" onAction="#quitter" prefHeight="21.0" prefWidth="116.0" text="QUITTER" />
             <Button mnemonicParsing="false" onAction="#GoBACK" prefHeight="6.0" prefWidth="123.0" text=" &lt;   Go BACK." />
@@ -21,7 +21,7 @@
             <Insets left="15.0" />
          </padding>
       </ToolBar>
-      <VBox layoutX="305.0" layoutY="97.0" prefHeight="247.0" prefWidth="150.0" spacing="30.0">
+      <VBox layoutX="528.0" layoutY="204.0" prefHeight="247.0" prefWidth="150.0" spacing="30.0">
          <children>
             <ImageView fx:id="lockIcon" fitHeight="96.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true">
                <VBox.margin>

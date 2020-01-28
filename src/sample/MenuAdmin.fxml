@@ -16,9 +16,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Pane layoutY="32.0" prefHeight="38.0" prefWidth="911.0" style="-fx-background-color: #F9C784;">
+      <Pane layoutY="32.0" prefHeight="38.0" prefWidth="1280.0" style="-fx-background-color: #F9C784;">
          <children>
             <Text layoutX="86.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU ADMIN">
                <font>
@@ -27,10 +27,15 @@
             </Text>
          </children>
       </Pane>
-      <VBox layoutY="70.0" prefHeight="503.0" prefWidth="182.0" spacing="2.0" style="-fx-background-color: #F9C784;">
+      <VBox layoutY="70.0" prefHeight="620.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: #F9C784;">
          <children>
             <Accordion />
-            <Button mnemonicParsing="false" onAction="#tabDeBord" prefHeight="17.0" prefWidth="182.0" style="-fx-background-color: #577280;" text="Tableau de bord" textAlignment="CENTER" textFill="#fafafa">
+            <Button mnemonicParsing="false" onAction="#tabDeBord" prefHeight="26.0" prefWidth="200.0" style="-fx-background-color: #577280;" text="Tableau de bord" textAlignment="CENTER" textFill="#fafafa">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#AfficheAnnonceButtonPushed" prefHeight="17.0" prefWidth="200.0" style="-fx-background-color: #577280;" text="Afficher annonces" textAlignment="CENTER" textFill="#fafafa">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -39,19 +44,19 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="181.0">
                      <children>
-                        <VBox prefHeight="93.0" prefWidth="182.0" spacing="5.0">
+                        <VBox prefHeight="94.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#AjouterBienAppart" prefHeight="26.0" prefWidth="184.0" style="-fx-background-color: #577280;" text="Ajouter Appart" textFill="#fafafa">
+                              <Button mnemonicParsing="false" onAction="#AjouterBienAppart" prefHeight="26.0" prefWidth="200.0" style="-fx-background-color: #577280;" text="Ajouter Appart" textFill="#fafafa">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#AjouterBienMaison" prefHeight="26.0" prefWidth="184.0" style="-fx-background-color: #577280;" text="Ajouter Maison" textFill="#fafafa">
+                              <Button mnemonicParsing="false" onAction="#AjouterBienMaison" prefHeight="26.0" prefWidth="200.0" style="-fx-background-color: #577280;" text="Ajouter Maison" textFill="#fafafa">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#AjouterBienTerrain" prefHeight="26.0" prefWidth="184.0" style="-fx-background-color: #577280;" text="Ajouter Terrain" textFill="#fafafa">
+                              <Button mnemonicParsing="false" onAction="#AjouterBienTerrain" prefHeight="26.0" prefWidth="200.0" style="-fx-background-color: #577280;" text="Ajouter Terrain" textFill="#fafafa">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -62,30 +67,25 @@
                   </AnchorPane>
             </content>
           </TitledPane>
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="182.0" style="-fx-background-color: #577280;" text="Recherche par critere(s)" textFill="#fafafa">
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="200.0" style="-fx-background-color: #577280;" text="Recherche par critere(s)" textFill="#fafafa">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="36.0" mnemonicParsing="false" onAction="#GoAfficherWilayas" prefHeight="0.0" prefWidth="182.0" style="-fx-background-color: #577280;" text="Afficher wilaya/prix m²" textFill="#fafafa">
+            <Button layoutX="10.0" layoutY="36.0" mnemonicParsing="false" onAction="#GoAfficherWilayas" prefHeight="0.0" prefWidth="200.0" style="-fx-background-color: #577280;" text="Afficher wilaya/prix m²" textFill="#fafafa">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="103.0" mnemonicParsing="false" onAction="#afficherPropButtonPushed" prefHeight="2.0" prefWidth="182.0" style="-fx-background-color: #577280;" text="Afficher Propriétaires" textFill="#fafafa">
+            <Button layoutX="10.0" layoutY="103.0" mnemonicParsing="false" onAction="#afficherPropButtonPushed" prefHeight="2.0" prefWidth="200.0" style="-fx-background-color: #577280;" text="Afficher Propriétaires" textFill="#fafafa">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#GoMessage" prefHeight="0.0" prefWidth="182.0" style="-fx-background-color: #577280;" text="Envoyer Message" textFill="#fafafa">
+            <Button mnemonicParsing="false" onAction="#GoMessage" prefHeight="0.0" prefWidth="200.0" style="-fx-background-color: #577280;" text="Envoyer Message" textFill="#fafafa">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#AfficheAnnonceButtonPushed" prefHeight="17.0" prefWidth="182.0" style="-fx-background-color: #577280;" text="Afficher annonces" textAlignment="CENTER" textFill="#fafafa">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
          </children>
       </VBox>
-      <ToolBar layoutY="566.0" prefHeight="40.0" prefWidth="902.0">
+      <ToolBar layoutX="4.0" layoutY="686.0" prefHeight="40.0" prefWidth="1274.0">
          <items>
             <Button mnemonicParsing="false" onAction="#GoBACK" prefHeight="19.0" prefWidth="123.0" text="Go BACK." />
             <Button mnemonicParsing="false" onAction="#quitter" prefHeight="19.0" prefWidth="116.0" text="QUITTER" />
@@ -109,7 +109,7 @@
             <PieChart fx:id="pieChart2" prefHeight="162.0" prefWidth="226.0" />
          </children>
       </HBox>
-      <SubScene fx:id="mainSubScene" height="480.0" layoutX="188.0" layoutY="75.0" width="700.0">
+      <SubScene fx:id="mainSubScene" height="620.0" layoutX="200.0" layoutY="70.0" width="1080.0">
          <root>
             <Region />
          </root>

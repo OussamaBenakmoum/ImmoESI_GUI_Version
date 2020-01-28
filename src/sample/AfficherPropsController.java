@@ -15,7 +15,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 
-
 import javax.swing.text.Element;
 import javax.swing.text.html.ImageView;
 import java.net.URL;
@@ -48,7 +47,6 @@ public class AfficherPropsController implements Initializable {
             super();
 
 
-            hBox.prefHeight(100);
             hBox.getChildren().addAll(nomProp, mailProp, pane, btn);
             hBox.setHgrow(pane, Priority.ALWAYS);
 
