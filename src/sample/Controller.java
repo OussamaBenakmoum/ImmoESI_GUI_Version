@@ -379,13 +379,55 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
     Hyperlink link;
 
 
+
+    @FXML
+    Button tabBord = new Button();
+
+
+    @FXML
+    private Button adminButton = new Button();
+    @FXML
+    private Button publicButton = new Button();
+
+    @FXML
+    Button connectButton = new Button();
+
+
+
+
+    public void enlightenButtonTwice(Button btn){
+        btn.setOnMouseEntered(e -> {
+            btn.setStyle("-fx-background-color: #577280");
+        });
+        btn.setOnMouseExited(e -> {
+            btn.setStyle("-fx-background-color: #F9C784");
+        });
+
+    }
+
+
+
+    public void enlightenButtonNormal(Button btn){
+        btn.setOnMouseEntered(e -> {
+            btn.setStyle("-fx-background-color: #577280");
+        });
+        btn.setOnMouseExited(e -> {
+            btn.setStyle("");
+        });
+
+    }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        enlightenButtonTwice(tabBord);
+        enlightenButtonNormal(adminButton);
+        enlightenButtonNormal(publicButton);
 
+        enlightenButtonNormal(connectButton);
 
         //pieChart.setLegendSide(Side.LEFT);
-
 
 
 
@@ -403,6 +445,10 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
 
 
         lockIcon.setImage(new Image("images/locked.png"));
+
+
+
+
 
 
 

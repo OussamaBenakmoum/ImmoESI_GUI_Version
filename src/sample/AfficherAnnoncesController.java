@@ -60,10 +60,13 @@ public class AfficherAnnoncesController  implements Initializable{
         public Cell(){
             super();
 
+
             titleVBox.getChildren().addAll(typeBienLabel, typeTransaction);
             vbox.getChildren().addAll(titleVBox, adresse, superficie);
             hBox.prefHeight(100);
-            hBox.getChildren().addAll(houseIcon, vbox, pane, prix);
+            hBox.setSpacing(10);
+
+            hBox.getChildren().addAll(houseIcon, vbox, pane, prix, detailButton);
             hBox.setHgrow(pane, Priority.ALWAYS);
 
 
@@ -101,7 +104,6 @@ public class AfficherAnnoncesController  implements Initializable{
 
 
 
-
                 detailButton.setOnMouseEntered(e -> {
                     detailButton.setStyle("-fx-background-color: #558ff2");
                 });
@@ -109,9 +111,6 @@ public class AfficherAnnoncesController  implements Initializable{
                     detailButton.setStyle("");
                 });
             }
-
-
-
 
 
         }

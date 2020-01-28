@@ -30,7 +30,7 @@
       <VBox layoutY="70.0" prefHeight="620.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: #F9C784;">
          <children>
             <Accordion />
-            <Button mnemonicParsing="false" onAction="#tabDeBord" prefHeight="26.0" prefWidth="200.0" style="-fx-background-color: #577280;" text="Tableau de bord" textAlignment="CENTER" textFill="#fafafa">
+            <Button fx:id="tabBord" mnemonicParsing="false" onAction="#tabDeBord" prefHeight="26.0" prefWidth="200.0" style="-fx-background-color: #F9C784;" text="Tableau de bord" textAlignment="CENTER" textFill="#fafafa">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

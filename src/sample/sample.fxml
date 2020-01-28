@@ -10,11 +10,11 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Button layoutX="427.0" layoutY="263.0" mnemonicParsing="false" onAction="#GoToAdmin" prefHeight="159.0" prefWidth="171.0" text="ADMIN">
+      <Button fx:id="adminButton" layoutX="427.0" layoutY="263.0" mnemonicParsing="false" onAction="#GoToAdmin" prefHeight="159.0" prefWidth="171.0" text="ADMIN">
          <graphic>
             <ImageView fx:id="admminIcon" fitHeight="114.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" />
          </graphic></Button>
-      <Button layoutX="681.0" layoutY="263.0" mnemonicParsing="false" onAction="#GoToPublic" prefHeight="159.0" prefWidth="171.0" text="PUBLIC" textAlignment="CENTER" wrapText="true">
+      <Button fx:id="publicButton" layoutX="681.0" layoutY="263.0" mnemonicParsing="false" onAction="#GoToPublic" prefHeight="159.0" prefWidth="171.0" text="PUBLIC" textAlignment="CENTER" wrapText="true">
          <graphic>
             <ImageView fx:id="pubIcon" fitHeight="101.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true" />
          </graphic></Button>

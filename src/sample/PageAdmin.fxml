@@ -31,7 +31,7 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="IDENTIFICATION" textAlignment="CENTER" wrappingWidth="223.33673095703125" />
             <TextField fx:id="username" prefHeight="26.0" prefWidth="262.0" promptText="username" />
             <PasswordField fx:id="passwd" promptText="passwd" />
-            <Button mnemonicParsing="false" onAction="#OnSubit" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #45cc59; -fx-background-radius: 50;" text="Connect">
+            <Button fx:id="connectButton" mnemonicParsing="false" onAction="#OnSubit" prefHeight="26.0" prefWidth="100.0" style=" -fx-background-radius: 50;" text="Connect">
                <VBox.margin>
                   <Insets left="63.0" />
                </VBox.margin>
