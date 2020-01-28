@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
@@ -20,7 +21,6 @@ import javafx.scene.layout.VBox;
 import jdk.jshell.spi.ExecutionControl;
 
 import javax.swing.text.Element;
-import javax.swing.text.html.ImageView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -40,7 +40,8 @@ public class AfficherAnnoncesController  implements Initializable{
         HBox hBox = new HBox();
         VBox vbox = new VBox();
         VBox titleVBox = new VBox();
-
+        Image house = new Image("images/home.png");
+        ImageView houseIcon = new ImageView(house);
         Pane pane =  new Pane();
 
         Label typeBienLabel = new Label("");
@@ -62,7 +63,7 @@ public class AfficherAnnoncesController  implements Initializable{
             titleVBox.getChildren().addAll(typeBienLabel, typeTransaction);
             vbox.getChildren().addAll(titleVBox, adresse, superficie);
             hBox.prefHeight(100);
-            hBox.getChildren().addAll(vbox, pane, prix);
+            hBox.getChildren().addAll(houseIcon, vbox, pane, prix);
             hBox.setHgrow(pane, Priority.ALWAYS);
 
 
