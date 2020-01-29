@@ -132,6 +132,16 @@ here i will decalre  the texfields to create an appart
 
 
 
+
+
+
+
+
+
+
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         typeTransactionChoiceBox.getItems().add("vente");

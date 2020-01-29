@@ -77,7 +77,7 @@ public class Wilaya {
         return wilayas.get(matriculeWilaya-1);
     }
 
-    public static Wilaya stringToWilaya(String nomWilaya){
+    public static Wilaya stringToWilaya(String nomWilaya)   {
 
         for (Wilaya w:wilayas
              ) {
