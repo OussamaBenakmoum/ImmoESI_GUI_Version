@@ -9,6 +9,13 @@ import java.io.*;
 public class Agence {
 
 
+    public static boolean access = false;
+    /**
+     * access is a boolean that shows on what mode you are connected
+     * true = access is for the admin
+     * false = access is for the public
+     */
+
     public String nom = "ImmoESI";
     private Admin admin = new Admin("chems", "0000");
 

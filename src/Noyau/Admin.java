@@ -21,8 +21,11 @@ public class Admin {
         System.out.print("Mot de passe: "); String psswd = sc.next();
 
 
-        if (user.equalsIgnoreCase(this.userID) && psswd.equalsIgnoreCase(this.password))
-        return true;
+        if (user.equalsIgnoreCase(this.userID) && psswd.equalsIgnoreCase(this.password)) {
+            Agence.access = true;
+            return true;
+
+        }
         else return false;
     }
 

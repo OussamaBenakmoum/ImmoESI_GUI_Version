@@ -5,6 +5,7 @@ import java.time.LocalDate;
 public abstract class Bien implements Comparable<Bien>
 {
 
+
     protected int matricule;// matricule du bien
     protected String addresse;
     protected float superficie;
@@ -102,15 +103,21 @@ public abstract class Bien implements Comparable<Bien>
 
     public abstract double calculPrix(Transaction tr, boolean mmWilaya);
 
-    protected boolean textToBool(String rep){
+    public static  boolean textToBool(String rep){
         rep.toLowerCase();
         return rep == "oui" || rep == "o";
     }
-    protected boolean textToBool(char rep){
+    public static boolean textToBool(char rep){
         return rep == 'o' || rep == 'O';
     }
 
 
+    public static String boolToString(boolean test){
+        if (test)
+            return "Oui";
+        else return "Non";
+
+    }
 
     public String getAddresse() {
         return addresse;
@@ -166,6 +173,10 @@ public abstract class Bien implements Comparable<Bien>
 
     public void setTransaction(Transaction transaction) {
         this.transaction = transaction;
+    }
+
+    public boolean isNegociable() {
+        return negociable;
     }
 }
 

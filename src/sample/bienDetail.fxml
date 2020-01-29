@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="562.0" prefWidth="280.0" spacing="5.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="560.0" prefWidth="280.0" spacing="5.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AfficherPropsController">
    <padding>
       <Insets left="20.0" top="40.0" />
    </padding>
@@ -18,7 +18,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label text="typeBienLabel">
+            <Label fx:id="typeBienLabel" text="typeBienLabel">
                <font>
                   <Font size="14.0" />
                </font>
@@ -28,13 +28,13 @@
       <HBox prefHeight="23.0" prefWidth="260.0" spacing="10.0">
          <children>
             <Label text="Transaction :" />
-            <Label text="transactionLabel" />
+            <Label fx:id="transactionLabel" text="transactionLabel" />
          </children>
       </HBox>
       <HBox prefHeight="19.0" prefWidth="260.0" spacing="10.0">
          <children>
             <Label text="Date d'ajout : " />
-            <Label text="dateLabel" />
+            <Label fx:id="dateLabel" text="dateLabel" />
          </children>
       </HBox>
       <HBox prefHeight="18.0" prefWidth="260.0" spacing="10.0">
@@ -46,43 +46,43 @@
       <HBox prefHeight="19.0" prefWidth="260.0" spacing="10.0">
          <children>
             <Label text="Wilaya :" />
-            <Label text="wilayaLabel" />
+            <Label fx:id="wilayaLabel" text="wilayaLabel" />
          </children>
       </HBox>
       <HBox prefHeight="20.0" prefWidth="260.0" spacing="10.0">
          <children>
             <Label text="Superficie :" />
-            <Label text="superficieLabel" />
+            <Label fx:id="superficieLabel" text="superficieLabel" />
          </children>
       </HBox>
       <HBox prefHeight="20.0" prefWidth="260.0" spacing="10.0">
          <children>
             <Label text="Simplexe :" />
-            <Label text="simplexeLabel" />
+            <Label fx:id="simplexeLabel" text="simplexeLabel" />
          </children>
       </HBox>
       <HBox prefHeight="20.0" prefWidth="260.0" spacing="10.0">
          <children>
             <Label text="Nombre de chambres : " />
-            <Label text="nbchambesLabel" />
+            <Label fx:id="nbchambesLabel" text="nbchambesLabel" />
          </children>
       </HBox>
       <HBox prefHeight="20.0" prefWidth="260.0" spacing="10.0">
          <children>
             <Label text="Meublé :" />
-            <Label text="meubleLabel" />
+            <Label fx:id="meubleLabel" text="meubleLabel" />
          </children>
       </HBox>
       <HBox prefHeight="20.0" prefWidth="260.0" spacing="10.0">
          <children>
             <Label text="Jardin :" />
-            <Label text="jardinLabel" />
+            <Label fx:id="jardinLabel" text="jardinLabel" />
          </children>
       </HBox>
       <HBox prefHeight="20.0" prefWidth="260.0" spacing="10.0">
          <children>
             <Label text="Garage :" />
-            <Label text="garageLabel" />
+            <Label fx:id="garageLabel" text="garageLabel" />
          </children>
       </HBox>
       <HBox prefHeight="20.0" prefWidth="260.0" spacing="10.0">
@@ -92,18 +92,23 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
+            <Label fx:id="prixLabel" text="prixLabel" textFill="#cd860d">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </HBox>
       <HBox prefHeight="20.0" prefWidth="260.0" spacing="10.0">
          <children>
             <Label text="Negociable :" />
-            <Label text="negoLabel" />
+            <Label fx:id="negoLabel" text="negoLabel" />
          </children>
       </HBox>
       <HBox prefHeight="20.0" prefWidth="260.0" spacing="10.0">
          <children>
             <Label text="Bien de" />
-            <Label text="propLabel" />
+            <Label fx:id="propLabel" text="propLabel" />
          </children>
       </HBox>
       <Label />

@@ -11,7 +11,6 @@ public class Appartement extends Habitable {
     private boolean ascenseur;
 
 
-
     public Appartement(Transaction tr, Proprietaire prop ) throws InputMismatchException, NegativeException {
         Scanner intSc = new Scanner(System.in); // Scanner for integers floats and the rest numbers
         Scanner sc = new Scanner(System.in);// for strings
@@ -188,6 +187,7 @@ public class Appartement extends Habitable {
         return prixFinal;
 
     }
+
 
 
 }
