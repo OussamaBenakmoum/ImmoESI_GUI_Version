@@ -34,13 +34,13 @@ public class AfficherAnnoncesController  implements Initializable{
 
 
 
-    static class Cell extends ListCell<Bien>
+    public static class BienCell extends ListCell<Bien>
     {
 
         HBox hBox = new HBox();
         VBox vbox = new VBox();
         VBox titleVBox = new VBox();
-        Image house = new Image("images/home.png");
+        Image house;
         ImageView houseIcon = new ImageView(house);
         Pane pane =  new Pane();
 
@@ -57,7 +57,7 @@ public class AfficherAnnoncesController  implements Initializable{
 
         Button detailButton = new Button();
 
-        public Cell(){
+        public BienCell(){
             super();
 
 
@@ -91,8 +91,25 @@ public class AfficherAnnoncesController  implements Initializable{
                 prix.setText(String.valueOf(bien.calculPrix(bien.getTransaction(), true)));
 
 
+                if (bien.getClass().getSimpleName().equals("Maison")){
+                    house = new Image("images/maison.png");;
 
-                setGraphic(hBox);
+                }else
+                if (bien.getClass().getSimpleName().equals("Appartement")) {
+                    house = new Image("images/appart.png");
+                }
+                else
+                if (bien.getClass().getSimpleName().equals("Terrain")) {
+                    house = new Image("images/terrain.png");
+                }
+                houseIcon.setImage(house);
+                houseIcon.setFitHeight(50);
+                houseIcon.setFitWidth(50);
+                    setGraphic(hBox);
+
+
+
+
 
                 detailButton.setOnAction(e -> {
                     Bien bienSelected;
@@ -124,7 +141,7 @@ public class AfficherAnnoncesController  implements Initializable{
 
 
         biensListView.setItems(biensObservableList);
-        biensListView.setCellFactory(param -> new Cell(){
+        biensListView.setCellFactory(param -> new BienCell(){
         });
 
 

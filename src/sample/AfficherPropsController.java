@@ -1,6 +1,7 @@
 
 package sample;
 
+import Noyau.Bien;
 import Noyau.Proprietaire;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,15 +25,18 @@ public class AfficherPropsController implements Initializable {
 
 
     private ObservableList<Proprietaire> propsObservableList  = FXCollections.observableArrayList(Proprietaire.proprietaires);
-
+    private ObservableList<Bien> biensPropObservableList;
     @FXML
     private ListView<Proprietaire> proprietairesListView;
 
+// here i define the list vies of a chosen person
+    @FXML
+    private ListView<Bien> biensPropListView;
 
 
 
 
-    static class Cell extends ListCell<Proprietaire>
+    public static class PropCell extends ListCell<Proprietaire>
     {
         HBox hBox = new HBox();
 
@@ -43,14 +47,15 @@ public class AfficherPropsController implements Initializable {
         Button btn = new Button("delete");
 
 
-        public Cell(){
+        public PropCell(){
             super();
 
 
             hBox.getChildren().addAll(nomProp, mailProp, pane, btn);
             hBox.setHgrow(pane, Priority.ALWAYS);
-
     }
+
+
 
     public void updateItem(Proprietaire prop, boolean empty){
             super.updateItem(prop, empty);
@@ -62,6 +67,9 @@ public class AfficherPropsController implements Initializable {
                 mailProp.setText("E-mail : "+prop.getadrMail());
                 setGraphic(hBox);
 
+
+
+
                 btn.setOnAction(e -> {
                     Proprietaire propSelected;
                     propSelected = getListView().getItems().remove(getIndex());
@@ -70,8 +78,6 @@ public class AfficherPropsController implements Initializable {
                     System.out.println("this was deleted  "+propSelected.getPrenom());
 
                 });
-
-
 
 
 
@@ -96,11 +102,16 @@ public class AfficherPropsController implements Initializable {
 
 
 
-
         proprietairesListView.setItems(propsObservableList);
-        proprietairesListView.setCellFactory(param -> new Cell(){
+        proprietairesListView.setCellFactory(param -> new PropCell(){
+
 
         });
+
+
+        biensPropObservableList = FXCollections.observableArrayList(proprietairesListView.getItems().get(0).getBiens());
+        biensPropListView.setItems(biensPropObservableList);
+        biensPropListView.setCellFactory(parame -> new AfficherAnnoncesController.BienCell());
 
 
     }

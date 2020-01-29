@@ -1,17 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AfficherPropsController">
+<AnchorPane prefHeight="620.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AfficherPropsController">
    <children>
-      <Label layoutX="14.0" layoutY="20.0" text="Propriétaires" style="-fx-font-family: 'Open Sans Light'" >
+      <Label layoutX="14.0" layoutY="20.0" style="-fx-font-family: 'Open Sans Light'" text="Propriétaires">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <ListView fx:id="proprietairesListView" layoutX="14.0" layoutY="54.0" prefHeight="394.0" prefWidth="586.0" />
+      <Label layoutX="332.0" layoutY="20.0" style="-fx-font-family: 'Open Sans Light'" text="Biens">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <HBox layoutX="1.0" layoutY="58.0" prefHeight="562.0" prefWidth="955.0">
+         <children>
+            <ListView fx:id="proprietairesListView" prefHeight="562.0" prefWidth="411.0" />
+            <ListView fx:id="biensPropListView" prefHeight="562.0" prefWidth="330.0" />
+            <VBox prefHeight="562.0" prefWidth="280.0" spacing="5.0">
+               <padding>
+                  <Insets left="20.0" top="40.0" />
+               </padding>
+               <children>
+                  <HBox prefHeight="24.0" prefWidth="260.0">
+                     <children>
+                        <Label text="TypeBien :">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="23.0" prefWidth="260.0">
+                     <children>
+                        <Label text="Transaction :" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="19.0" prefWidth="260.0">
+                     <children>
+                        <Label text="Date d'ajout : " />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="18.0" prefWidth="260.0">
+                     <children>
+                        <Label text="Adresse : " />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="19.0" prefWidth="260.0">
+                     <children>
+                        <Label text="Wilaya :" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="260.0">
+                     <children>
+                        <Label text="Superficie :" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="260.0">
+                     <children>
+                        <Label text="Simplexe :" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="260.0">
+                     <children>
+                        <Label text="Meublé" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="260.0">
+                     <children>
+                        <Label text="Jardin :" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="260.0">
+                     <children>
+                        <Label text="Garage :" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="260.0">
+                     <children>
+                        <Label text="Prix :" textFill="#cd860d">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="260.0">
+                     <children>
+                        <Label text="Negociable :" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="260.0">
+                     <children>
+                        <Label text="Bien de" />
+                     </children>
+                  </HBox>
+                  <Label />
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+      <Label layoutX="658.0" layoutY="22.0" style="-fx-font-family: 'Open Sans Light'" text="Détails">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

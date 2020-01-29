@@ -139,10 +139,6 @@ here i will decalre  the texfields to create an appart
         typeTransactionChoiceBox.getItems().add("echange");
 
 
-
-
-
-
         for (Proprietaire prop: Proprietaire.proprietaires
         ) {propsChoiceBox.getItems().add(prop.getNom()+" "+prop.getPrenom());
         }
