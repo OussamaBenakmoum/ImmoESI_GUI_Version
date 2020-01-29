@@ -19,8 +19,7 @@ public class Wilaya {
         this.nom = nom;
         this.prixM = prixM;
     }
-
-
+    
     public void afficherWilaya(){
         System.out.println("Wilaya : "+this.nom+"_________________________________________Prix/m\u00B2 : "+ this.prixM +" DA");
     }

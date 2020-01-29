@@ -1,21 +1,17 @@
 package sample;
 
 
-import Noyau.Agence;
-import Noyau.Bien;
-import Noyau.Wilaya;
+import Noyau.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.SubScene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -29,7 +25,10 @@ import javax.swing.*;
 import javax.swing.text.Element;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class AfficherAnnoncesController  implements Initializable{
     private ObservableList<Bien> biensObservableList  = FXCollections.observableArrayList(Agence.treeBiens);
@@ -80,6 +79,29 @@ public class AfficherAnnoncesController  implements Initializable{
     @FXML
     private Label propLabel = new Label();
 
+
+    @FXML
+    private ChoiceBox<String> typeTransactionChoiceBox;
+
+    @FXML
+    private ChoiceBox<String> wilayasChoiceBox;
+
+    @FXML
+    private ChoiceBox<String> propsChoiceBox;
+
+    @FXML
+    private ChoiceBox<String> typeBienChoiceBox;
+
+/*
+    @FXML
+    private Slider prixMinSlider;*/
+
+    @FXML
+    private TextField prixMinTextField;
+
+
+    @FXML
+    private TextField superficieMinTextField;
 
 
 
@@ -221,28 +243,112 @@ public class AfficherAnnoncesController  implements Initializable{
 
 
 
+
+    public void choixCriteres(ActionEvent event){
+
+
+        boolean criteres[] = new boolean[10];
+
+        int nbCriteres=0, cpt;
+
+        double prixMin = 0;
+
+        float superficieMin = 0;
+
+        Transaction tr = null;
+        String tpBien = null;
+        Wilaya wilaya = null;
+
+
+        /** COMMENTAIRES sur le fonctionnement de cette methode
+         *  le tableau de boolean
+         *  premiere case : (critere de prix min)true : veut dire on prend l critere
+         *  deuxieme case : (superficie min)
+         *  troisieme case: pour wilaya
+         *  quatrieme type de bien
+         *  cinqieme transaction
+         *
+         */
+
+        if(!(prixMinTextField.getText().equals("0"))) {
+            criteres[0] = true;
+        }
+
+        if (!(superficieMinTextField.getText().equals("0"))){
+            criteres[1] =true;
+        }
+
+        if (!wilayasChoiceBox.getValue().equals("Toutes")) {
+            criteres[2] = true;
+        }
+
+        if (!typeBienChoiceBox.getValue().equals("Tous")) {
+            criteres[3] = true;
+        }
+
+        if(!(typeTransactionChoiceBox.getValue().equalsIgnoreCase("Toutes"))){
+            criteres[4] = true;
+        }
+
+        if (!propsChoiceBox.getValue().equals("Tous")){
+            criteres[5] = true;
+        }
+
+
+        //biensValides.addAll(biens);
+        ArrayList<Bien> biensValides = new ArrayList<>(Agence.treeBiens);
+
+        for(Bien bien : Agence.treeBiens){
+            int i =0;cpt = 0;
+            while((i < criteres.length)){
+
+                if (criteres[i]){
+                    //cpt++;
+                    switch (i){
+                        case 0: if (bien.calculPrix(bien.getTransaction(), true) < Double.parseDouble(prixMinTextField.getText()))
+                            biensValides.remove(bien);
+                            break;
+                        case 1: if(bien.getSuperficie() < Float.parseFloat(superficieMinTextField.getText()))
+                            biensValides.remove(bien);
+                            break;
+                        case 2: if(!(bien.getWilaya().getNom().equals(wilayasChoiceBox.getValue())))
+                            biensValides.remove(bien);
+                            break;
+                        case 3: if(!(bien.getClass().getSimpleName().equals(typeBienChoiceBox.getValue())))
+                            biensValides.remove(bien);
+                            break;
+                        case 4: if(!(bien.getTransaction().toString().equalsIgnoreCase((typeTransactionChoiceBox.getValue()))))
+                            biensValides.remove(bien);
+                            break;
+
+                    }
+                }
+                i++;
+            }
+        }
+
+        System.out.println(biensValides);
+
+        biensObservableList = FXCollections.observableArrayList(biensValides);
+        biensListView.setItems(biensObservableList);
+    }
+
+
+
+
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-/*
-
-        try {
-            Parent samp = FXMLLoader.load(getClass().getResource("bienDetail.fxml"));
-            detailSubscene.setRoot(samp);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-*/
 
         biensListView.setItems(biensObservableList);
-        biensListView.setCellFactory(param -> new BienCell(){
+        biensListView.setCellFactory(param -> new BienCell() {
         });
 
 
-
-
-        biensListView.setOnMouseClicked(new AfficherPropsController.ListViewHandler(){
+        biensListView.setOnMouseClicked(new AfficherPropsController.ListViewHandler() {
             @Override
             public void handle(javafx.scene.input.MouseEvent event) {
 
@@ -252,8 +358,70 @@ public class AfficherAnnoncesController  implements Initializable{
         });
 
 
+        /**
+         * region criteres
+         */
+
+
+
+        // filtre superficie et prix min
+
+        superficieMinTextField.setText("0");
+        prixMinTextField.setText("0");
+
+
+// filtre prop
+        propsChoiceBox.getItems().add("Tous");
+        propsChoiceBox.setValue("Tous");
+        for (
+                Proprietaire prop : Proprietaire.proprietaires
+        ) {
+            propsChoiceBox.getItems().add(prop.getNom() + " " + prop.getPrenom());
+        }
+
+
+// filtre wilaya
+
+        wilayasChoiceBox.getItems().add("Toutes");
+
+        for (Wilaya wil : Wilaya.wilayas
+        ) {
+            wilayasChoiceBox.getItems().add(wil.getNom());
+        }
+        wilayasChoiceBox.setValue("Toutes");
+
+
+
+
+
+
+        // type bien
+
+        typeBienChoiceBox.getItems().add("Tous");
+
+        typeBienChoiceBox.getItems().add("Appartement");
+        typeBienChoiceBox.getItems().add("Maison");
+        typeBienChoiceBox.getItems().add("Terrain");
+
+        typeBienChoiceBox.setValue("Tous");
+
+
+
+
+        // type transaction
+
+        typeTransactionChoiceBox.getItems().add("Toutes");
+        typeTransactionChoiceBox.setValue("Toutes");
+
+        typeTransactionChoiceBox.getItems().add("vente");
+        typeTransactionChoiceBox.getItems().add("location");
+        typeTransactionChoiceBox.getItems().add("echange");
+
+
 
     }
 
-    
+
+
+
 }
