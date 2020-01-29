@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -18,7 +19,7 @@
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <ListView fx:id="biensListView" layoutX="14.0" layoutY="127.0" prefHeight="518.0" prefWidth="735.0" />
+      <ListView fx:id="biensListView" layoutX="14.0" layoutY="164.0" prefHeight="482.0" prefWidth="735.0" />
       <VBox layoutX="735.0" layoutY="82.0" prefHeight="560.0" prefWidth="346.0" spacing="10.0">
          <children>
             <Label text="Details">
@@ -132,6 +133,7 @@
                      </children>
                   </HBox>
                   <Label />
+                  <Button fx:id="modifierButton" mnemonicParsing="false" onAction="#modifierButtonPushed" text="Modifier" />
                </children>
             </VBox>
          </children>
@@ -141,27 +143,44 @@
       </VBox>
       <HBox layoutX="23.0" layoutY="37.0" prefHeight="74.0" prefWidth="735.0" spacing="10.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0">
                <children>
+                  <Label text="Transaction" />
                   <ChoiceBox fx:id="typeTransactionChoiceBox" prefHeight="26.0" prefWidth="213.0" />
+                  <Label text="Type de bien" />
                   <ChoiceBox fx:id="typeBienChoiceBox" prefHeight="26.0" prefWidth="213.0" />
                </children>
             </VBox>
-            <ChoiceBox fx:id="wilayasChoiceBox" prefHeight="26.0" prefWidth="99.0" />
-            <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+            <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
+                  <Label text="Wilaya" />
+                  <ChoiceBox fx:id="wilayasChoiceBox" prefHeight="26.0" prefWidth="99.0" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Propriétaire" />
                   <ChoiceBox fx:id="propsChoiceBox" prefHeight="26.0" prefWidth="98.0" />
                </children>
             </VBox>
-            <VBox prefHeight="64.0" prefWidth="190.0">
+            <VBox prefHeight="62.0" prefWidth="154.0">
                <children>
-                  <TextField fx:id="prixMinTextField" promptText="Prix min" />
+                  <Label text="Prix min" />
+                  <TextField fx:id="prixMinTextField" prefHeight="26.0" prefWidth="170.0" promptText="Prix min" />
                </children>
             </VBox>
-            <TextField fx:id="superficieMinTextField" promptText="Superficie min" />
-            <Button mnemonicParsing="false" onAction="#choixCriteres" prefHeight="28.0" prefWidth="80.0" text="Filtrer">
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Superficie min" />
+                  <TextField fx:id="superficieMinTextField" promptText="Superficie min" />
+               </children>
+            </VBox>
+            <Button fx:id="filtrerButton" mnemonicParsing="false" onAction="#choixCriteres" prefHeight="87.0" prefWidth="96.0">
+               <graphic>
+                  <ImageView fx:id="filterIcon" fitHeight="51.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
                <HBox.margin>
-                  <Insets />
+                  <Insets top="17.0" />
                </HBox.margin>
             </Button>
          </children>

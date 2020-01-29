@@ -70,6 +70,7 @@ public class Controller implements Initializable {
         Parent publiq = FXMLLoader.load(getClass().getResource("PagePublic.fxml"));
         Scene pubscene = new Scene(publiq);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Agence.access =false;
 
         window.setScene(pubscene);
         window.setResizable(false);
@@ -100,7 +101,7 @@ public class Controller implements Initializable {
         boolean exist = true;
         if (exist)
         {
-
+            Agence.access = true;
 
            // Parent board = FXMLLoader.load(getClass().getResource("TableauDeBord.fxml"));
            // mainSubScene.setRoot(board);
@@ -151,7 +152,7 @@ public class Controller implements Initializable {
         Scene sampscene = new Scene(samp);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(sampscene);
-        window.setResizable(true);
+        window.setResizable(false);
         window.show();
     }
 
@@ -241,17 +242,19 @@ public void GoMessage (ActionEvent event) throws IOException, MessagingException
 
 public void sendMessage(ActionEvent event) throws MessagingException {
     Bien b=null;
-    Message2 message = new Message2(senderName.toString(),email.toString(),  textMessage.toString(), b);
+    Message2 message = new Message2(senderName.getText(),email.getText(),  textMessage.getText(), b);
 }
 
 
 public void EnvoyerMessage(ActionEvent event){
-    Bien b = null;
+   // Bien b = null;
     try {
-        Message2 message = new Message2(senderName.toString(), email.toString(), textMessage.toString(), b);
+        Message2 message = new Message2(senderName.getText(),email.getText(),  textMessage.getText(), Proprietaire.proprietaires.get(0).getBiens().get(0));
     } catch (MessagingException ex) {
         ex.printStackTrace();
     }
+    successMessageLabel.setText("message envoyé avec succès");
+
 }
 
 /**************************************************************/
@@ -393,6 +396,11 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
     Button connectButton = new Button();
 
 
+    /*
+    message label
+     */
+    @FXML
+    private Label successMessageLabel = new Label("");
 
 
     public void enlightenButtonTwice(Button btn){
@@ -449,7 +457,7 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
 
 
 
-
+        successMessageLabel.setText("");
 
 
 

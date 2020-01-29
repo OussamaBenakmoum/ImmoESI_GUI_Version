@@ -9,7 +9,9 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.SubScene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -19,6 +21,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 import jdk.jshell.spi.ExecutionControl;
 
 import javax.swing.*;
@@ -104,6 +109,15 @@ public class AfficherAnnoncesController  implements Initializable{
     private TextField superficieMinTextField;
 
 
+
+    @FXML
+    Button modifierButton = new Button();
+
+    @FXML
+    Button filtrerButton = new Button();
+
+    @FXML
+    ImageView filterIcon= new ImageView();
 
 
 
@@ -238,6 +252,29 @@ public class AfficherAnnoncesController  implements Initializable{
             //this method will be overrided in next step
         }
     }
+
+
+
+
+    public void modifierButtonPushed(ActionEvent event) throws IOException {
+        Parent samp = FXMLLoader.load(getClass().getResource("modifierAppart.fxml"));
+
+        Scene sampscene = new Scene(samp);
+        Stage window = new Stage();
+
+        window.initModality(Modality.APPLICATION_MODAL);// to still use other windeows
+        window.setTitle("Modifier Bien");
+
+        window.setScene(sampscene);
+        window.setResizable(false);
+        window.showAndWait();
+
+    }
+
+    public void ModifierBien(){
+
+    }
+
 
 
 
@@ -396,6 +433,7 @@ public class AfficherAnnoncesController  implements Initializable{
         wilayasChoiceBox.setValue("Toutes");
 
 
+        Util.enlightenButtonNormal(filtrerButton);
 
 
 
@@ -423,6 +461,10 @@ public class AfficherAnnoncesController  implements Initializable{
         typeTransactionChoiceBox.getItems().add("echange");
 
 
+
+
+        Image filterImage = new Image("images/filter.png");
+        filterIcon.setImage(filterImage);
 
     }
 

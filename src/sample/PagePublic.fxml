@@ -28,15 +28,11 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #577280;" text="Recherche par critere(s)" textFill="#fafafa">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font></Button>
             <Button layoutX="10.0" layoutY="36.0" mnemonicParsing="false" onAction="#GoAfficherWilayas" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #577280;" text="Afficher wilaya/prix m²" textFill="#fafafa">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="103.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #577280;" text="Afficher Propriétaire" textFill="#fafafa">
+            <Button layoutX="10.0" layoutY="103.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" onAction="#afficherPropButtonPushed" style="-fx-background-color: #577280;" text="Afficher Propriétaire" textFill="#fafafa">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>

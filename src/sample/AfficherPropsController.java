@@ -48,7 +48,6 @@ public class AfficherPropsController implements Initializable {
     private ListView<Bien> biensPropListView;
 
 
-
     //define the needs for the details area
 
     @FXML
@@ -95,10 +94,6 @@ public class AfficherPropsController implements Initializable {
 
 
 
-
-
-
-
     public static class PropCell extends ListCell<Proprietaire>
     {
         HBox hBox = new HBox();
@@ -112,8 +107,11 @@ public class AfficherPropsController implements Initializable {
 
         public PropCell(){
             super();
-
+            if (Agence.access)
             hBox.getChildren().addAll(nomProp, mailProp, pane, btn);
+            else
+                hBox.getChildren().addAll(nomProp, mailProp, pane);
+
             hBox.setHgrow(pane, Priority.ALWAYS);
     }
 
@@ -126,7 +124,7 @@ public class AfficherPropsController implements Initializable {
 
             if(prop != null && !empty){
                 nomProp.setText(prop.getNom()+" "+prop.getPrenom());
-                mailProp.setText("E-mail : "+prop.getadrMail());
+                mailProp.setText(" \nE-mail : "+prop.getadrMail());
                 setGraphic(hBox);
 
 
@@ -159,11 +157,6 @@ public class AfficherPropsController implements Initializable {
     }
 
 
-
-
-
-
-
     private void displayDetails(Bien bien){
         typeBienLabel.setText(bien.getClass().getSimpleName());
         transactionLabel.setText(bien.getTransaction().toString());
@@ -180,20 +173,6 @@ public class AfficherPropsController implements Initializable {
         negoLabel.setText(Bien.boolToString(bien.isNegociable()));
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -233,23 +212,17 @@ public class AfficherPropsController implements Initializable {
         });
 
 
-
-
         biensPropListView.setItems(biensPropObservableList);
         biensPropListView.setCellFactory(parame -> new AfficherAnnoncesController.BienCell());
-
 
 
         biensPropListView.setOnMouseClicked(new ListViewHandler(){
             @Override
             public void handle(javafx.scene.input.MouseEvent event) {
-
                 displayDetails(biensPropListView.getSelectionModel().getSelectedItem());
 
             }
         });
-
-
 
     }
 }
