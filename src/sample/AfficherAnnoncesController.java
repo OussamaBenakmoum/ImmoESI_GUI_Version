@@ -212,6 +212,7 @@ public class AfficherAnnoncesController  implements Initializable{
 
 
     private void displayDetails(Bien bien){
+
         typeBienLabel.setText(bien.getClass().getSimpleName());
         transactionLabel.setText(bien.getTransaction().toString());
         dateLabel.setText(bien.getDateAjout().toString());
@@ -320,6 +321,10 @@ public class AfficherAnnoncesController  implements Initializable{
                         case 4: if(!(bien.getTransaction().toString().equalsIgnoreCase((typeTransactionChoiceBox.getValue()))))
                             biensValides.remove(bien);
                             break;
+                        case 5: if(!((bien.getProp().getNom()+" "+bien.getProp().getPrenom()).equalsIgnoreCase((propsChoiceBox.getValue()))))
+                            biensValides.remove(bien);
+                            break;
+
 
                     }
                 }
