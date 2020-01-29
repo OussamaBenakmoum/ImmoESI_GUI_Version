@@ -15,7 +15,7 @@
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="332.0" layoutY="20.0" style="-fx-font-family: 'Open Sans Light'" text="Biens">
+      <Label layoutX="394.0" layoutY="20.0" style="-fx-font-family: 'Open Sans Light'" text="Biens">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
@@ -110,7 +110,7 @@
             </VBox>
          </children>
       </HBox>
-      <Label layoutX="658.0" layoutY="22.0" style="-fx-font-family: 'Open Sans Light'" text="Détails">
+      <Label layoutX="709.0" layoutY="20.0" style="-fx-font-family: 'Open Sans Light'" text="Détails">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>

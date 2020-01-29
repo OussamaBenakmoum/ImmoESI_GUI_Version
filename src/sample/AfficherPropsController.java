@@ -3,15 +3,16 @@ package sample;
 
 import Noyau.Bien;
 import Noyau.Proprietaire;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
@@ -19,20 +20,26 @@ import javafx.scene.layout.Priority;
 import javax.swing.text.Element;
 import javax.swing.text.html.ImageView;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AfficherPropsController implements Initializable {
 
 
     private ObservableList<Proprietaire> propsObservableList  = FXCollections.observableArrayList(Proprietaire.proprietaires);
+
+
+
     private ObservableList<Bien> biensPropObservableList;
+
+
+
     @FXML
     private ListView<Proprietaire> proprietairesListView;
 
 // here i define the list vies of a chosen person
     @FXML
     private ListView<Bien> biensPropListView;
-
 
 
 
@@ -97,21 +104,46 @@ public class AfficherPropsController implements Initializable {
     }
 
 
+    class ListViewHandler implements EventHandler<MouseEvent> {
+        @Override
+        public void handle(MouseEvent event) {
+            //this method will be overrided in next step
+        }
+    }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
 
         proprietairesListView.setItems(propsObservableList);
-        proprietairesListView.setCellFactory(param -> new PropCell(){
+        proprietairesListView.setCellFactory(param -> new PropCell());
 
-
-        });
+        int index=0;
 
 
         biensPropObservableList = FXCollections.observableArrayList(proprietairesListView.getItems().get(0).getBiens());
+
+
+        proprietairesListView.setOnMouseClicked(new ListViewHandler(){
+            @Override
+            public void handle(javafx.scene.input.MouseEvent event) {
+                System.out.print(proprietairesListView.getSelectionModel().getSelectedIndex());
+
+                biensPropObservableList = FXCollections.observableArrayList(proprietairesListView.getSelectionModel().getSelectedItem().getBiens());
+
+                biensPropListView.setItems(biensPropObservableList);
+            }
+        });
+
         biensPropListView.setItems(biensPropObservableList);
+
+
         biensPropListView.setCellFactory(parame -> new AfficherAnnoncesController.BienCell());
+
+
+
 
 
     }
