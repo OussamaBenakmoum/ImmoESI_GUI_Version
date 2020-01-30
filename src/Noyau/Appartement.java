@@ -85,6 +85,7 @@ public class Appartement extends Habitable {
         this.etage = etage;
         this.simplexe = simplexe;
         this.ascenseur = ascenseur;
+
     }
 
     public Appartement(int matricule, String addresse, float superficie, Proprietaire prop, Transaction transaction , double prixInit,
@@ -189,5 +190,15 @@ public class Appartement extends Habitable {
     }
 
 
+    public int getEtage() {
+        return etage;
+    }
 
+    public boolean isSimplexe() {
+        return simplexe;
+    }
+
+    public boolean isAscenseur() {
+        return ascenseur;
+    }
 }

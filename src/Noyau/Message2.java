@@ -159,7 +159,7 @@ public class Message2 {
             mess.setFrom(new InternetAddress(myAccountEmail));
             mess.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
             mess.setSubject("E-mail d'un client de l'agence");
-            mess.setText(" \n Je suis le client "+sender+"  "+"  Le bien "+b.getClass().getSimpleName()+" a l'adresse  "+b.addresse+"  "+" Wilaya:" +b.getWilaya().getNom()+" \n\n  "+textMessage);
+            mess.setText(" \n Je suis le client "+sender+"  "+"  \nLe bien "+b.getClass().getSimpleName()+" \na l'adresse  "+b.addresse+"  "+" \nWilaya:" +b.getWilaya().getNom()+" \n\n  "+textMessage);
             return mess;
         }catch (Exception ex){
             System.out.println("");

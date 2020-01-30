@@ -185,6 +185,28 @@ public class Proprietaire
 
     }
 
+    public static void chargerFicherProprietaire() throws IOException {
+
+        FileWriter csvWriter = new FileWriter("Proprietaire.proprietaires.csv");
+
+        csvWriter.append("matricule;nom;prenom;adrmail;telephone;adresse;\n");
+
+        for (Proprietaire prop:Proprietaire.proprietaires
+        ) {
+            csvWriter.append(String.valueOf(prop.getMatricule())+";");
+            csvWriter.append(prop.getNom()+";");
+            csvWriter.append(prop.getPrenom()+";");
+            csvWriter.append(prop.getadrMail()+";");
+            csvWriter.append(prop.getTel()+";");
+            csvWriter.append(prop.getAdresse()+";");
+            csvWriter.append("\n");
+
+        }
+
+        csvWriter.flush();
+        csvWriter.close();
+
+    }
 
     public static Proprietaire stringToProprietaire(String nomPrenomTextField){
         for (Proprietaire prop:proprietaires

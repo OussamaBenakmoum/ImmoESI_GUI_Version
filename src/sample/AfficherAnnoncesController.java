@@ -9,10 +9,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.SubScene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -23,17 +21,11 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.Window;
-import jdk.jshell.spi.ExecutionControl;
 
-import javax.swing.*;
-import javax.swing.text.Element;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 public class AfficherAnnoncesController  implements Initializable{
     private ObservableList<Bien> biensObservableList  = FXCollections.observableArrayList(Agence.treeBiens);
@@ -120,12 +112,44 @@ public class AfficherAnnoncesController  implements Initializable{
     ImageView filterIcon= new ImageView();
 
 
+    /*
+    ici les champs à modifier
+     */
+
+    @FXML
+    TextField typeBienTextField = new TextField();
+    @FXML
+    TextField transactionTextField = new TextField();
+    @FXML
+    TextField wilayaTextField = new TextField();
+    @FXML
+    TextField adresseTextField = new TextField();
+
+    @FXML
+    TextField dateajoutTextField = new TextField();
+
+    @FXML
+    TextField prixTextField = new TextField();
+    @FXML
+    TextField superficieTextField = new TextField();
+    @FXML
+    Toggle negociableToggleButton = new ToggleButton();
+
+
+
+
 
     public static class BienCell extends ListCell<Bien> {
+
+
+
+
 
         HBox hBox = new HBox();
         VBox vbox = new VBox();
         VBox titleVBox = new VBox();
+        VBox buttonsVbox = new VBox();
+
         Image house;
         ImageView houseIcon = new ImageView(house);
         Pane pane = new Pane();
@@ -141,7 +165,9 @@ public class AfficherAnnoncesController  implements Initializable{
         Label prix = new Label();
 
 
-        Button detailButton = new Button("Delete");
+        Button deleteButton = new Button("Delete");
+        Button modifierButton = new Button("Modifier");
+
 
 
         public BienCell() {
@@ -149,10 +175,12 @@ public class AfficherAnnoncesController  implements Initializable{
 
             titleVBox.getChildren().addAll(typeBienLabel, typeTransaction);
             vbox.getChildren().addAll(titleVBox, adresse, superficie);
+            buttonsVbox.getChildren().addAll(deleteButton, modifierButton);
+
             hBox.prefHeight(100);
             hBox.setSpacing(10);
             if (Agence.access)
-                hBox.getChildren().addAll(houseIcon, vbox, pane, prix, detailButton);
+                hBox.getChildren().addAll(houseIcon, vbox, pane, prix, buttonsVbox);
             else
                 hBox.getChildren().addAll(houseIcon, vbox, pane, prix);
 
@@ -201,7 +229,7 @@ public class AfficherAnnoncesController  implements Initializable{
 
 
 
-                detailButton.setOnAction(e -> {
+                deleteButton.setOnAction(e -> {
                     Bien bienSelected;
                     bienSelected = getListView().getItems().remove(getIndex());
                     Agence.treeBiens.remove(bienSelected);
@@ -209,11 +237,20 @@ public class AfficherAnnoncesController  implements Initializable{
                 });
 
 
-                detailButton.setOnMouseEntered(e -> {
-                    detailButton.setStyle("-fx-background-color: #558ff2");
+                modifierButton.setOnAction( e-> {
+
+
+
                 });
-                detailButton.setOnMouseExited(e -> {
-                    detailButton.setStyle("");
+
+
+
+
+                deleteButton.setOnMouseEntered(e -> {
+                    deleteButton.setStyle("-fx-background-color: #558ff2");
+                });
+                deleteButton.setOnMouseExited(e -> {
+                    deleteButton.setStyle("");
                 });
             }
 
@@ -224,7 +261,6 @@ public class AfficherAnnoncesController  implements Initializable{
     }
 
 
-
     private void displayDetails(Bien bien){
 
         typeBienLabel.setText(bien.getClass().getSimpleName());
@@ -233,17 +269,23 @@ public class AfficherAnnoncesController  implements Initializable{
         adresseLabel.setText(bien.getAddresse());
         wilayaLabel.setText(bien.getWilaya().getNom());
         superficieLabel.setText(String.valueOf(bien.getSuperficie()));
-        simplexeLabel.setText("--");
+
+        if (bien.getClass().getSimpleName().equalsIgnoreCase("appartement"))
+        simplexeLabel.setText("---");
         nbchambesLabel.setText("---");
+
+
         meubleLabel.setText("----");
         jardinLabel.setText("----");
         garageLabel.setText("---");
-        prixLabel.setText(String.valueOf(bien.calculPrix(bien.getTransaction(), true)));
+        if (bien.getTransaction()==Transaction.location)
+        prixLabel.setText(String.valueOf(bien.calculPrix(bien.getTransaction(), true))+ "  DA/Mois");
+        else
+            prixLabel.setText(String.valueOf(bien.calculPrix(bien.getTransaction(), true))+ "DA");
+
         negoLabel.setText(Bien.boolToString(bien.isNegociable()));
 
     }
-
-
 
 
     static class ListViewHandler implements EventHandler<MouseEvent> {
@@ -376,11 +418,6 @@ public class AfficherAnnoncesController  implements Initializable{
     }
 
 
-
-
-
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -465,6 +502,43 @@ public class AfficherAnnoncesController  implements Initializable{
 
         Image filterImage = new Image("images/filter.png");
         filterIcon.setImage(filterImage);
+
+
+        /**
+         * affectation pour la fenetre de modification
+         */
+
+
+
+        biensListView.setOnMouseClicked(new AfficherPropsController.ListViewHandler() {
+            @Override
+            public void handle(javafx.scene.input.MouseEvent event) {
+
+                Bien bien = biensListView.getSelectionModel().getSelectedItem();
+
+                typeBienTextField.setText(bien.getClass().getSimpleName());
+                transactionTextField.setText(bien.getTransaction().toString());
+                wilayaTextField.setText(bien.getWilaya().getNom());
+                adresseTextField.setText(bien.getAddresse());
+                dateajoutTextField.setText(bien.getDateAjout().toString());
+                prixTextField.setText(String.valueOf(bien.getPrixInit()));
+                superficieTextField.setText(String.valueOf(bien.getSuperficie()));
+                negociableToggleButton.setSelected(true);
+
+
+
+
+
+            }
+        });
+
+
+
+
+
+
+
+
 
     }
 

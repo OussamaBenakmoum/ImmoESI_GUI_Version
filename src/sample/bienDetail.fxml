@@ -111,6 +111,8 @@
             <Label fx:id="propLabel" text="propLabel" />
          </children>
       </HBox>
+      <Label prefHeight="0.0" prefWidth="78.0" text="Description" />
+      <Label prefHeight="3.0" prefWidth="66.0" />
       <Label />
    </children>
 </VBox>

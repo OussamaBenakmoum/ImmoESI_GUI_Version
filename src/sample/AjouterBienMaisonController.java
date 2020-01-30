@@ -13,9 +13,11 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.awt.im.InputContext;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.InputMismatchException;
 import java.util.ResourceBundle;
 
 public class AjouterBienMaisonController implements Initializable {
@@ -118,6 +120,8 @@ here i will decalre  the texfields to create an appart
     String err = null;
      try {
         Bien maison;
+
+
         maison = new Maison(Integer.parseInt(matriculeTextField.getText()),
                 adresseTextField.getText(), Float.parseFloat(superficieTextField.getText()),
                 Proprietaire.stringToProprietaire(propsChoiceBox.getValue()),Transaction.valueOf(typeTransactionChoiceBox.getValue()),
@@ -130,7 +134,10 @@ here i will decalre  the texfields to create an appart
         Agence.treeBiens.add(maison);
         maison.afficher();
 
-    }catch (Exception e){
+    }catch (InputMismatchException e){
+         err = "surface non habitable supérieure à la surface habitable";
+     }
+     catch (Exception e){
         err = e.getMessage();
     }
 
@@ -143,6 +150,8 @@ here i will decalre  the texfields to create an appart
         alert.showAndWait();
     }
     }
+
+
 
 
     @Override

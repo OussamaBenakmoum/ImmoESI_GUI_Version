@@ -78,15 +78,18 @@ public class Maison extends Habitable
 
     public Maison(int matricule, String addresse, float superficie, Proprietaire prop, Transaction transaction, double prix_init,
                   boolean negociable, String description, LocalDate dateAjout, Wilaya wialaya, String photo, int nbPieces,
-                  boolean meuble, int nbEtages, boolean garage, float piscine, float jardin)
+                  boolean meuble, int nbEtages, boolean garage, float piscine, float jardin) throws InputMismatchException
 
 
     {
         super(matricule, addresse, superficie, prop, transaction, prix_init, negociable, description, dateAjout,wialaya, photo, nbPieces, meuble);
         this.nbEtages = nbEtages;
         this.garage = garage;
+
         this.piscine = piscine;
         this.jardin = jardin;
+        if (this.piscine + this.jardin > (this.superficie)/2) throw new InputMismatchException();
+
 
     }
     public Maison(int matricule, String addresse, float superficie, Proprietaire prop, Transaction transaction, double prix_init,

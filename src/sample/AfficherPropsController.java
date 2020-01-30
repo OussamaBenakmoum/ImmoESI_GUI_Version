@@ -124,7 +124,7 @@ public class AfficherPropsController implements Initializable {
 
             if(prop != null && !empty){
                 nomProp.setText(prop.getNom()+" "+prop.getPrenom());
-                mailProp.setText(" \nE-mail : "+prop.getadrMail());
+                mailProp.setText(" E-mail : "+prop.getadrMail());
                 setGraphic(hBox);
 
 
@@ -166,12 +166,17 @@ public class AfficherPropsController implements Initializable {
         superficieLabel.setText(String.valueOf(bien.getSuperficie()));
         simplexeLabel.setText("--");
         nbchambesLabel.setText("---");
+
         meubleLabel.setText("----");
+
         jardinLabel.setText("----");
         garageLabel.setText("---");
+
+
+
         prixLabel.setText(String.valueOf(bien.calculPrix(bien.getTransaction(), true)));
         negoLabel.setText(Bien.boolToString(bien.isNegociable()));
-
+        propLabel.setText(bien.getProp().getNom()+"  "+bien.getProp().getPrenom());
     }
 
 

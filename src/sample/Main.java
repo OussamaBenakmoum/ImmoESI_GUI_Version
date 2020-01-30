@@ -4,6 +4,7 @@ package sample;
 
 
 import Noyau.Agence;
+import Noyau.Message2;
 import Noyau.Proprietaire;
 import Noyau.Wilaya;
 import javafx.application.Application;
@@ -15,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.awt.*;
+import java.io.IOException;
 
 public class Main extends Application {
     static Stage primaire;
@@ -40,6 +42,19 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
         primaire = primaryStage;
+
+
+        primaryStage.setOnCloseRequest(e -> {
+
+            try {
+                Message2.chargerFichierMessage();
+                Proprietaire.chargerFicherProprietaire();
+
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+
 
     }
 
