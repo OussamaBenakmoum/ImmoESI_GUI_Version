@@ -34,7 +34,7 @@ public class Controller implements Initializable {
 
 
     public Agence ImmoESI = new Agence();
-    Admin ad = new Admin("IMMOESI","0000");
+    Admin ad = new Admin("chems","0000");
 
 
     /**
@@ -97,8 +97,8 @@ public class Controller implements Initializable {
 
     void OnSubit(ActionEvent event) throws IOException, InterruptedException {
 
-        //boolean exist = ad.identification(username.getText(),passwd.getText());
-        boolean exist = true;
+        boolean exist = ad.identification(username.getText(),passwd.getText());
+        //boolean exist = true;
         if (exist)
         {
             Agence.access = true;
@@ -279,6 +279,13 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
     }
 
 
+
+    public void goBoiteMessages(ActionEvent event) throws IOException {
+        Parent samp = FXMLLoader.load(getClass().getResource("MessagesBoite.fxml"));
+        mainSubScene.setRoot(samp);
+    }
+
+
     /******************************************************/
 
 //Ajouter bien
@@ -383,9 +390,6 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
 
 
 
-    @FXML
-    Button tabBord = new Button();
-
 
     @FXML
     private Button adminButton = new Button();
@@ -405,13 +409,31 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
 
     public void enlightenButtonTwice(Button btn){
         btn.setOnMouseEntered(e -> {
-            btn.setStyle("-fx-background-color: #577280");
+            btn.setStyle("-fx-background-color: #F9C784");
         });
         btn.setOnMouseExited(e -> {
-            btn.setStyle("-fx-background-color: #F9C784");
+            btn.setStyle("-fx-background-color: #577280");
         });
 
     }
+
+
+    @FXML
+    private Button tabBord = new Button();
+
+    @FXML
+    private Button ajoutAppartButton = new Button();
+
+    @FXML
+    private Button ajoutTerrainButton = new Button();
+
+    @FXML
+    private Button afficherPropButton = new Button();
+
+
+
+    
+
 
 
 
@@ -430,8 +452,13 @@ public void AfficheAnnonceButtonPushed(ActionEvent event) throws IOException {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         enlightenButtonTwice(tabBord);
+        enlightenButtonTwice(ajoutAppartButton);
+        enlightenButtonTwice(ajoutTerrainButton);
+        enlightenButtonTwice(afficherPropButton);
+
         enlightenButtonNormal(adminButton);
         enlightenButtonNormal(publicButton);
+
 
         enlightenButtonNormal(connectButton);
 

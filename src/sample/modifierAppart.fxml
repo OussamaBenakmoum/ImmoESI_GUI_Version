@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="562.0" prefWidth="293.0" spacing="5.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AfficherAnnoncesController">
+<VBox alignment="TOP_CENTER" prefHeight="562.0" prefWidth="293.0" spacing="5.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.modifierAppartController">
    <padding>
       <Insets left="20.0" top="40.0" />
    </padding>

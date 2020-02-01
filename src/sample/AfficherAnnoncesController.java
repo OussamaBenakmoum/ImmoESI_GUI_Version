@@ -102,8 +102,7 @@ public class AfficherAnnoncesController  implements Initializable{
 
 
 
-    @FXML
-    Button modifierButton = new Button();
+
 
     @FXML
     Button filtrerButton = new Button();
@@ -115,6 +114,7 @@ public class AfficherAnnoncesController  implements Initializable{
     /*
     ici les champs à modifier
      */
+/*
 
     @FXML
     TextField typeBienTextField = new TextField();
@@ -135,7 +135,11 @@ public class AfficherAnnoncesController  implements Initializable{
     @FXML
     Toggle negociableToggleButton = new ToggleButton();
 
-
+    @FXML
+    Button modificationButton = new Button();
+    @FXML
+    Label modifieSuccess = new Label("");
+*/
 
 
 
@@ -236,12 +240,28 @@ public class AfficherAnnoncesController  implements Initializable{
 
                 });
 
+/*
 
                 modifierButton.setOnAction( e-> {
+                    Parent samp = null;
+                    try {
+                        samp = FXMLLoader.load(getClass().getResource("modifierAppart.fxml"));
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
 
+                    Scene sampscene = new Scene(samp);
+                    Stage window = new Stage();
 
+                    window.initModality(Modality.APPLICATION_MODAL);// to still use other windeows
+                    window.setTitle("Modifier Bien");
+
+                    window.setScene(sampscene);
+                    window.setResizable(false);
+                    window.showAndWait();
 
                 });
+*/
 
 
 
@@ -253,9 +273,6 @@ public class AfficherAnnoncesController  implements Initializable{
                     deleteButton.setStyle("");
                 });
             }
-
-
-
 
         }
     }
@@ -278,6 +295,7 @@ public class AfficherAnnoncesController  implements Initializable{
         meubleLabel.setText("----");
         jardinLabel.setText("----");
         garageLabel.setText("---");
+        propLabel.setText(bien.getProp().getNom()+" "+bien.getProp().getPrenom());
         if (bien.getTransaction()==Transaction.location)
         prixLabel.setText(String.valueOf(bien.calculPrix(bien.getTransaction(), true))+ "  DA/Mois");
         else
@@ -296,9 +314,11 @@ public class AfficherAnnoncesController  implements Initializable{
     }
 
 
-
-
     public void modifierButtonPushed(ActionEvent event) throws IOException {
+
+        System.out.println(Agence.treeBiens.toArray()[0]);
+
+
         Parent samp = FXMLLoader.load(getClass().getResource("modifierAppart.fxml"));
 
         Scene sampscene = new Scene(samp);
@@ -312,14 +332,6 @@ public class AfficherAnnoncesController  implements Initializable{
         window.showAndWait();
 
     }
-
-    public void ModifierBien(){
-
-    }
-
-
-
-
 
 
 
@@ -431,6 +443,7 @@ public class AfficherAnnoncesController  implements Initializable{
             @Override
             public void handle(javafx.scene.input.MouseEvent event) {
 
+                Agence.bienAModifie = biensListView.getSelectionModel().getSelectedItem();
                 displayDetails(biensListView.getSelectionModel().getSelectedItem());
 
             }
@@ -509,28 +522,15 @@ public class AfficherAnnoncesController  implements Initializable{
          */
 
 
-
         biensListView.setOnMouseClicked(new AfficherPropsController.ListViewHandler() {
             @Override
             public void handle(javafx.scene.input.MouseEvent event) {
 
-                Bien bien = biensListView.getSelectionModel().getSelectedItem();
-
-                typeBienTextField.setText(bien.getClass().getSimpleName());
-                transactionTextField.setText(bien.getTransaction().toString());
-                wilayaTextField.setText(bien.getWilaya().getNom());
-                adresseTextField.setText(bien.getAddresse());
-                dateajoutTextField.setText(bien.getDateAjout().toString());
-                prixTextField.setText(String.valueOf(bien.getPrixInit()));
-                superficieTextField.setText(String.valueOf(bien.getSuperficie()));
-                negociableToggleButton.setSelected(true);
-
-
-
-
 
             }
         });
+
+
 
 
 

@@ -23,7 +23,7 @@ public class Message2 {
     private String nomExpiditeur;
     private String email;
     private String textMessage;
-    static ArrayList<Message2> messages =  new ArrayList<>();
+    public static ArrayList<Message2> messages =  new ArrayList<>();
 
     public Message2(String nomExpiditeur, String email, String textMessage, Bien b) throws MessagingException {
         this.nomExpiditeur = nomExpiditeur;

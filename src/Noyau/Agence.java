@@ -10,6 +10,7 @@ public class Agence {
 
 
     public static boolean access = false;
+    public static Bien bienAModifie;
     /**
      * access is a boolean that shows on what mode you are connected
      * true = access is for the admin
@@ -22,8 +23,7 @@ public class Agence {
     public ArrayList<Bien> biens = new ArrayList<>();
     //public ArrayList<Proprietaire> Proprietaire.proprietaires = Proprietaire.Proprietaire.proprietaires;
     public static TreeSet<Bien> treeBiens = new TreeSet<>();
-    private Set<Bien> bienArchives = new HashSet<>();
-
+    public static Set<Bien> bienArchives = new HashSet<>();
 
     public void menu() throws IOException {
 

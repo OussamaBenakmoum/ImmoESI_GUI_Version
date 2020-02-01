@@ -70,8 +70,6 @@ here i will decalre  the texfields to create an appart
 
     public void creerPropDialogBox (ActionEvent event) throws IOException {
 
-
-
         Parent samp = FXMLLoader.load(getClass().getResource("test.fxml"));
         Scene sampscene = new Scene(samp);
         Stage window = new Stage();

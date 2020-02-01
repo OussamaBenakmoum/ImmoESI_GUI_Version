@@ -132,8 +132,8 @@
                         <Label fx:id="propLabel" text="propLabel" />
                      </children>
                   </HBox>
+                  <Button fx:id="modifierGlobalButton" mnemonicParsing="false" onAction="#modifierButtonPushed" text="Modifier" />
                   <Label />
-                  <Button fx:id="modifierButton" mnemonicParsing="false" onAction="#modifierButtonPushed" text="Modifier" />
                </children>
             </VBox>
          </children>

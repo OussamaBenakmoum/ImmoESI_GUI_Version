@@ -29,6 +29,8 @@
             <Label text="Développé par " textAlignment="CENTER" />
             <Hyperlink fx:id="link" text="Chems Eddine Benaziza" textAlignment="CENTER" />
             <Hyperlink text="Oussama Benakmoum" textAlignment="CENTER" />
+            <Label text="Supervisé par" textAlignment="CENTER" />
+            <Hyperlink text="Mme. SADEG Souhila" textAlignment="CENTER" />
          </children>
       </VBox>
    </children>
