@@ -6,4 +6,4 @@ sold or exchanges. It displays all categories of real estate with details
 - this project is for learning purposes (it is a school assignement)
 
 this is the view of one of the screens
-[](images/dashboard.png)
+![](images/dashboard.png)
