@@ -278,6 +278,7 @@ public class AfficherAnnoncesController  implements Initializable{
     }
 
 
+
     private void displayDetails(Bien bien){
 
         typeBienLabel.setText(bien.getClass().getSimpleName());
@@ -332,7 +333,6 @@ public class AfficherAnnoncesController  implements Initializable{
         window.showAndWait();
 
     }
-
 
 
 
